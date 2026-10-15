@@ -1,0 +1,2433 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./dl-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DUALINK | Socios de Ingeniería, CRM & Automatización</title>
+    <meta
+      name="description"
+      content="DUALINK: Socios técnicos y arquitectos de software. Core de ingeniería en Apps Web, Sistemas CRM, n8n e IA, potenciados con diseño de experiencia y marca de alto impacto."
+    />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://dualink-web.vercel.app" />
+    <meta property="og:title" content="DUALINK | Socios de Ingeniería, CRM & Automatización" />
+    <meta
+      property="og:description"
+      content="Core de ingeniería y automatización con IA, flujos n8n y sistemas CRM, complementados con diseño de experiencia y marca."
+    />
+    <meta
+      property="og:image"
+      content="https://dualink-web.vercel.app/brand/jorge-mariangel-2.webp"
+    />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="DUALINK | Socios de Ingeniería, CRM & Automatización"
+    />
+    <meta
+      name="twitter:description"
+      content="Core de ingeniería y automatización para empresas. Apps Web, CRM, n8n e IA con experiencia premium."
+    />
+    <meta
+      name="twitter:image"
+      content="https://dualink-web.vercel.app/brand/jorge-mariangel-2.webp"
+    />
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                purple: "#115e59", // Dark teal matching "DUA"
+                blue: "#84cc16", // Light green matching "LINK"
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ['"Plus Jakarta Sans"', "sans-serif"],
+            },
+            backgroundImage: {
+              "brand-gradient":
+                "linear-gradient(135deg, #115e59 0%, #84cc16 100%)",
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "float-delayed": "float 6s ease-in-out infinite 3s",
+              shine: "shine 2s linear infinite",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+              shine: {
+                to: { backgroundPosition: "200% center" },
+              },
+              progress: {
+                "0%": { transform: "scaleX(0)" },
+                "100%": { transform: "scaleX(1)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .title-brand-tight {
+          @apply font-display font-black tracking-tight;
+        }
+        .title-brand {
+          @apply font-display font-black;
+        }
+      }
+
+      html,
+      body {
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      /* Preloader Styles */
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        transition: opacity 0.8s cubic-bezier(0.65, 0, 0.35, 1), visibility 0.8s;
+      }
+      #preloader.loaded {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .loader-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      }
+      .loader-logo {
+        width: 180px;
+        height: auto;
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      .loader-progress-container {
+        width: 200px;
+        height: 3px;
+        background-color: rgba(0,0,0,0.05);
+        border-radius: 99px;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      .loader-progress-bar {
+        width: 0%;
+        height: 100%;
+        background-color: #84cc16; /* brand-blue/green */
+        border-radius: 99px;
+        transition: width 0.4s cubic-bezier(0.1, 0.7, 1.0, 0.1);
+      }
+    </style>
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  </head>
+<body class="bg-white overflow-x-hidden w-full max-w-full">
+    <!-- Premium Preloader -->
+    <div id="preloader">
+      <div class="loader-content">
+        <img src="./logo-dualink-premium.png" alt="DuaLink Logo" class="loader-logo" id="preloader-logo" />
+        <div class="loader-progress-container" id="preloader-progress">
+          <div class="loader-progress-bar" id="preloader-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="fixed top-[0.5cm] left-0 right-0 z-50 flex justify-center px-4 pointer-events-none transition-all duration-500 opacity-100"
+      id="navbar-container"
+    >
+      <nav
+        id="main-nav"
+        class="bg-black/95 text-white border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] backdrop-blur-2xl rounded-full px-4 md:px-8 py-3 flex items-center justify-between w-full max-w-5xl pointer-events-auto border transition-all duration-500 ring-1 ring-white/10"
+      >
+        <!-- Links Izquierda -->
+        <div class="hidden lg:flex items-center gap-8 text-sm font-semibold tracking-tight">
+          <a
+            href="/index.html"
+            class="text-white hover:text-emerald-400 text-opacity-90 hover:text-opacity-100 transition-colors"
+            >Inicio</a
+          >
+          <a
+            href="/proyectos.html"
+            class="text-white hover:text-emerald-400 text-opacity-90 hover:text-opacity-100 transition-colors"
+            >Proyectos hechos</a
+          >
+          <a
+            href="/index.html#nosotros"
+            class="text-white hover:text-emerald-400 text-opacity-90 hover:text-opacity-100 transition-colors"
+            >Nosotros</a
+          >
+          <a
+            href="/index.html#quehacemos"
+            class="text-white hover:text-emerald-400 text-opacity-90 hover:text-opacity-100 transition-colors"
+            >Qué Hacemos</a
+          >
+        </div>
+
+        <!-- Logo Central Textual -->
+        <div class="flex-shrink-0 flex items-center cursor-pointer mx-0">
+          <a href="/" class="flex flex-col items-center justify-center group">
+            <div
+              class="text-xl md:text-3xl font-black font-display tracking-tighter leading-none flex items-center transition-all duration-500"
+              id="nav-logo-text"
+            >
+              <span class="text-emerald-500">Dua</span>
+              <span class="text-lime-800">Link</span>
+            </div>
+            <span
+              class="text-[9px] md:text-[10px] font-bold tracking-[0.3em] text-emerald-500/80 mt-0.5 md:mt-1 uppercase transition-all duration-500"
+              id="nav-logo-sub"
+              >Studio</span
+            >
+          </a>
+        </div>
+
+        <!-- Links Derecha & CTA -->
+        <div class="hidden lg:flex items-center gap-8 text-sm font-semibold tracking-tight">
+          <a
+            href="#proceso"
+            class="text-white hover:text-emerald-400 text-opacity-90 hover:text-opacity-100 transition-colors"
+            >Proceso</a
+          >
+          <a
+            href="#pruebareal"
+            class="text-white hover:text-emerald-400 text-opacity-90 hover:text-opacity-100 transition-colors"
+            >Prueba Real</a
+          >
+          <div class="flex items-center pl-2">
+            <a
+              href="https://wa.me/584243799214"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="bg-violet-600 text-white px-7 py-2.5 rounded-full font-bold text-sm hover:bg-violet-500 hover:scale-105 transition-all shadow-[0_4px_20px_rgba(124,58,237,0.4)]"
+              >Contacto</a
+            >
+          </div>
+        </div>
+
+        <!-- Botón Menú Móvil -->
+        <div class="lg:hidden flex items-center text-white">
+          <button
+            id="mobile-menu-btn"
+            class="hover:opacity-70 transition-opacity p-2"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-menu w-6 h-6"
+            >
+              <path d="M4 5h16"></path>
+              <path d="M4 12h16"></path>
+              <path d="M4 19h16"></path>
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu Container -->
+      <div
+        id="mobile-menu"
+        class="hidden absolute top-full left-0 right-0 mt-4 mx-4 bg-black/90 backdrop-blur-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-3xl p-6 flex-col gap-6 z-50 origin-top pointer-events-auto"
+      >
+        <a
+          href="/index.html"
+          class="text-xl font-bold text-white hover:text-emerald-400 transition-colors mobile-nav-link"
+          >Inicio</a
+        >
+        <a
+          href="/proyectos.html"
+          class="text-xl font-bold text-white hover:text-emerald-400 transition-colors mobile-nav-link"
+          >Proyectos hechos</a
+        >
+        <a
+          href="/index.html#nosotros"
+          class="text-xl font-bold text-white hover:text-emerald-400 transition-colors mobile-nav-link"
+          >Nosotros</a
+        >
+        <a
+          href="/index.html#quehacemos"
+          class="text-xl font-bold text-white hover:text-emerald-400 transition-colors mobile-nav-link"
+          >Qué Hacemos</a
+        >
+        <a
+          href="#proceso"
+          class="text-xl font-bold text-white hover:text-emerald-400 transition-colors mobile-nav-link"
+          >Proceso</a
+        >
+        <a
+          href="#pruebareal"
+          class="text-xl font-bold text-white hover:text-emerald-400 transition-colors mobile-nav-link"
+          >Prueba Real</a
+        >
+        <a
+          href="https://wa.me/584243799214"
+          class="bg-violet-600 hover:bg-violet-500 transition-colors text-white text-center px-6 py-4 rounded-full font-bold text-lg mt-4 shadow-[0_4px_20px_rgba(124,58,237,0.4)] mobile-nav-link"
+          >Contacto</a
+        >
+      </div>
+    </div>
+    
+    <div id="root" class="overflow-x-hidden w-full max-w-full">
+      <div
+        class="relative min-h-screen bg-white font-sans selection:bg-brand-purple/20 selection:text-brand-purple overflow-x-hidden w-full max-w-full"
+      >
+        <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+          <div
+            class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-brand-blue/10 blur-[120px] rounded-full animate-float"
+          ></div>
+          <div
+            class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-brand-purple/10 blur-[150px] rounded-full animate-float-delayed"
+          ></div>
+          <div
+            class="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-brand-blue/5 blur-[100px] rounded-full animate-float"
+          ></div>
+        </div>
+
+        <div
+          style="
+            width: 100vw;
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+          "
+        >
+          <main class="flex flex-col bg-white overflow-x-hidden">
+            <section
+              id="inicio"
+              class="relative min-h-[100svh] flex flex-col items-center justify-start pt-32 pb-0 overflow-hidden"
+            >
+              <div class="text-center mb-0 relative z-30 px-4">
+                <div
+                  class="inline-block px-5 py-2 rounded-full bg-slate-50 border border-slate-200 mb-6 shadow-sm"
+                >
+                  <span
+                    class="font-mono text-sm tracking-tight flex items-center gap-1.5 leading-none"
+                  >
+                    <span class="text-slate-400">&lt;</span
+                    ><span class="text-brand-purple font-bold">Hello</span
+                    ><span class="text-brand-blue font-bold">World</span
+                    ><span class="text-slate-400">/&gt;</span>
+                    <span
+                      class="ml-2 text-slate-300 font-sans font-light select-none"
+                      >|</span
+                    >
+                    <span
+                      class="text-slate-600 font-sans font-bold ml-1 uppercase text-[10px] tracking-widest mt-0.5"
+                      >DUALINK</span
+                    >
+                  </span>
+                </div>
+                <h1
+                  class="text-3xl sm:text-5xl md:text-7xl lg:text-[5rem] font-display font-black leading-[1.1] tracking-tight text-slate-900 mb-8 max-w-none mx-auto flex flex-col items-center relative z-10 gap-y-0"
+                >
+                  <div
+                    class="flex flex-wrap sm:flex-nowrap justify-center items-center gap-x-[0.2em] overflow-visible py-2 text-center"
+                  >
+                    <span class="inline-block">Conectamos</span>
+                    <span
+                      class="inline-block text-transparent bg-clip-text bg-brand-gradient sm:ml-[0.2em]"
+                      >tu visión</span
+                    >
+                  </div>
+                  <div
+                    class="flex justify-center items-center whitespace-normal md:whitespace-nowrap overflow-visible py-2 -mt-2 sm:-mt-4 text-center"
+                  >
+                    <span class="inline">con tecnología que transforma</span>
+                  </div>
+                </h1>
+                <p
+                  class="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed"
+                >
+                  Transformamos ideas en productos digitales que dominan el
+                  mercado
+                </p>
+              </div>
+              <div
+                class="w-full max-w-7xl mx-auto flex flex-col xl:flex-row items-center xl:items-end justify-between relative z-10"
+              >
+                <div
+                  class="hidden xl:flex absolute top-[12svh] left-12 flex-col w-[280px] z-20"
+                >
+                  <div class="h-16 flex items-center mb-0">
+                    <span
+                      class="text-6xl text-brand-blue font-serif leading-none mt-4 opacity-90"
+                      >"</span
+                    >
+                  </div>
+                  <div class="mt-4">
+                    <p
+                      class="text-slate-700 text-base font-semibold mb-10 leading-relaxed italic"
+                    >
+                      Si puedes imaginarlo,<br />podemos desarrollarlo.
+                    </p>
+                    <div class="border-l-4 border-brand-blue pl-4">
+                          <h4 class="font-black text-slate-900 text-xl leading-tight">
+                            Convertimos tus ideas en proyectos reales y escalables
+                          </h4>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="relative flex-1 w-full max-w-[380px] xl:max-w-[500px] mx-auto flex flex-col items-center justify-end h-full"
+                >
+                  <div
+                    class="absolute top-[45%] sm:top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] sm:w-[105%] aspect-square bg-brand-gradient rounded-full -z-10 shadow-lg"
+                    style="opacity: 0.6"
+                  ></div>
+                  <img
+                    alt="Jorge y Mariangel de DUALINK"
+                    class="relative z-10 w-[110%] sm:w-[120%] h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] -mt-6 sm:-mt-10 mb-20 sm:mb-16 cursor-pointer scale-[1.35] sm:scale-[1.5] origin-top mx-auto"
+                    src="./jorge-mariganel-hero-nobg.png"
+                  />
+                  <div
+                    id="hero-cta"
+                    class="absolute bottom-10 sm:bottom-16 inset-x-0 mx-auto z-[45] flex flex-col sm:flex-row gap-3 bg-white/95 sm:bg-white/80 backdrop-blur-md p-3 sm:p-2 rounded-3xl sm:rounded-full border border-white shadow-xl w-[90%] sm:w-max justify-center sm:scale-100"
+                  >
+                    <a
+                      href="https://wa.me/584243799214?text=Hola%20DuaLink!%20Quiero%20agendar%20una%20llamada%20de%20diagn%C3%B3stico%20t%C3%A9cnico%20de%2015%20min."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="bg-brand-gradient text-white px-7 py-3 rounded-full font-bold flex items-center justify-center gap-2 hover:scale-105 transition-transform text-sm md:text-base whitespace-nowrap w-full sm:w-auto text-center"
+                      >Agenda diagnóstico técnico (15 min)<svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-arrow-up-right w-4 h-4"
+                      >
+                        <path d="M7 7h10v10"></path>
+                        <path d="M7 17 17 7"></path></svg
+                    ></a>
+                    <a
+                      class="bg-transparent text-slate-900 px-7 py-3 rounded-full font-bold hover:bg-slate-50 transition-colors text-sm md:text-base border border-slate-200 text-center whitespace-nowrap w-full sm:w-auto"
+                      href="#quehacemos"
+                      >Audita tus procesos</a
+                    >
+                  </div>
+                </div>
+                <div
+                  class="hidden xl:flex absolute top-[12svh] right-12 flex-col items-end w-[280px] text-right z-20"
+                >
+                  <div class="h-16 flex items-center mb-0">
+                    <div class="flex gap-1">
+                      <span
+                        class="text-brand-purple text-2xl drop-shadow-sm leading-none"
+                        >★</span
+                      >
+                      <span
+                        class="text-brand-purple text-2xl drop-shadow-sm leading-none"
+                        >★</span
+                      >
+                      <span
+                        class="text-brand-purple text-2xl drop-shadow-sm leading-none"
+                        >★</span
+                      >
+                      <span
+                        class="text-brand-purple text-2xl drop-shadow-sm leading-none"
+                        >★</span
+                      >
+                      <span
+                        class="text-brand-purple text-2xl drop-shadow-sm leading-none"
+                        >★</span
+                      >
+                    </div>
+                  </div>
+                  <div class="mt-4">
+                    <div class="border-r-4 border-brand-purple pr-4 mb-2">
+                      <h4 class="font-black text-slate-900 text-3xl">2 Años</h4>
+                      <span
+                        class="text-[11px] font-bold text-slate-500 uppercase tracking-widest mt-1 block"
+                        >Creando Juntos</span
+                      >
+                    </div>
+                    <p
+                      class="text-slate-400 text-[10px] font-medium uppercase tracking-tighter"
+                    >
+                      Pasión por el detalle
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Mobile Stats -->
+              <div
+                class="flex xl:hidden flex-row gap-6 justify-center items-center mt-16 mb-8 w-full max-w-sm mx-auto relative z-10 px-4"
+              >
+                <div class="border-l-4 border-brand-blue pl-4 text-left flex-1">
+                    <h4 class="font-black text-slate-900 text-base leading-tight">
+                      Convertimos tus ideas en proyectos reales y escalables
+                    </h4>
+                </div>
+                <div
+                  class="border-l-4 border-brand-purple pl-4 text-left flex-1"
+                >
+                  <h4 class="font-black text-slate-900 text-3xl sm:text-4xl">
+                    2 Años
+                  </h4>
+                  <span
+                    class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1 block"
+                    >Creando Juntos</span
+                  >
+                </div>
+              </div>
+            </section>
+
+            <div
+              class="w-full h-16 bg-gradient-to-b from-white to-zinc-800 relative z-30 pointer-events-none"
+            ></div>
+            <section
+              id="nosotros"
+              class="relative z-40 bg-zinc-900 text-white pt-12 pb-32 px-4 md:px-8 overflow-hidden w-full"
+            >
+              <div
+                class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none overflow-hidden opacity-20"
+              >
+                <div
+                  class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-blue/30 blur-[100px] rounded-full"
+                ></div>
+                <div
+                  class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-purple/30 blur-[100px] rounded-full"
+                ></div>
+              </div>
+              <div class="max-w-7xl mx-auto relative z-10">
+                <div
+                  class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center"
+                >
+                  <div class="relative h-[450px] md:h-[600px] w-full">
+                    <div
+                      class="absolute inset-0 w-full h-full p-2 bg-slate-900/50 backdrop-blur-sm border border-white/10 rounded-[2.5rem] shadow-2xl z-10"
+                      style="transform: scale(0.9) rotate(-8deg)"
+                    >
+                      <img
+                        alt="Jorge y Mariangel Presentación"
+                        class="w-full h-full object-cover object-[50%_45%] rounded-[2rem]"
+                        src="./brand/jorge-mariangel-about.png"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  <div class="flex flex-col">
+                    <div>
+                      <span
+                        class="text-brand-purple font-bold tracking-[0.3em] text-xs md:text-sm uppercase mb-6 block"
+                        >Nuestra Historia</span
+                      >
+                      <h2
+                        class="text-4xl sm:text-5xl md:text-7xl title-brand-tight text-white mb-10 leading-tight break-words"
+                      >
+                        Transformamos <br /><span
+                          class="text-transparent bg-clip-text bg-brand-gradient break-words"
+                          >pasión en resultados</span
+                        >
+                      </h2>
+                    </div>
+                    <div
+                      class="space-y-8 text-slate-400 text-lg md:text-xl font-medium leading-relaxed"
+                    >
+                      <p>
+                        Somos <strong class="text-white">Jorge</strong> y
+                        <strong class="text-white">Mariangel</strong>. DUALINK
+                        nació de la necesidad de hacer las cosas distinto.
+                        Decidimos unir nuestra visión técnica y creativa para ir
+                        más allá de lo estético y resolver problemas reales de
+                        negocios en el mundo digital.
+                      </p>
+                    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                      <!-- Stat 1: Money -->
+                      <div class="stat-card p-6 rounded-3xl bg-black border border-white/5 hover:border-brand-blue/30 transition-colors group">
+                        <div class="flex items-center gap-4 mb-3">
+                          <div class="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                          </div>
+                          <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Resultados</span>
+                        </div>
+                        <h4 class="text-4xl font-black text-white mb-1">+$<span class="stat-counter" data-target="10000">0</span></h4>
+                        <p class="text-sm text-slate-400 font-medium">Generados en Proyectos</p>
+                      </div>
+
+                      <!-- Stat 2: Projects -->
+                      <div class="stat-card p-6 rounded-3xl bg-black border border-white/5 hover:border-brand-purple/30 transition-colors group">
+                        <div class="flex items-center gap-4 mb-3">
+                          <div class="w-10 h-10 rounded-xl bg-brand-purple/10 flex items-center justify-center text-brand-purple group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                          </div>
+                          <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Alcance</span>
+                        </div>
+                        <h4 class="text-4xl font-black text-white mb-1"><span class="stat-counter" data-target="25">0</span>+</h4>
+                        <p class="text-sm text-slate-400 font-medium">Proyectos Lanzados</p>
+                      </div>
+
+                      <!-- Stat 3: Experience -->
+                      <div class="stat-card p-6 rounded-3xl bg-black border border-white/5 hover:border-brand-blue/30 transition-colors group">
+                        <div class="flex items-center gap-4 mb-3">
+                          <div class="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                          </div>
+                          <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Trayectoria</span>
+                        </div>
+                        <h4 class="text-4xl font-black text-white mb-1"><span class="stat-counter" data-target="2">0</span> Años</h4>
+                        <p class="text-sm text-slate-400 font-medium">Creando Juntos</p>
+                      </div>
+
+                      <!-- Stat 4: Happiness -->
+                      <div class="stat-card p-6 rounded-3xl bg-black border border-white/5 hover:border-brand-purple/30 transition-colors group">
+                        <div class="flex items-center gap-4 mb-3">
+                          <div class="w-10 h-10 rounded-xl bg-brand-purple/10 flex items-center justify-center text-brand-purple group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+                          </div>
+                          <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Calidad</span>
+                        </div>
+                        <h4 class="text-4xl font-black text-white mb-1"><span class="stat-counter" data-target="100">0</span>%</h4>
+                        <p class="text-sm text-slate-400 font-medium">Satisfacción Garantizada</p>
+                      </div>
+                    </div>
+                    <div
+                      class="mt-12 p-8 rounded-3xl bg-black border border-white/10 shadow-2xl backdrop-blur-sm"
+                    >
+                      <p
+                        class="text-xl md:text-2xl font-bold text-white italic relative z-10 leading-relaxed text-balance"
+                      >
+                        "No trabajamos para cientos de marcas.<br />Nos aliamos
+                        con misiones que nos apasionan y estamos dispuestos a
+                        escalar."
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section
+              id="quehacemos"
+              class="bg-zinc-900 text-white py-24 px-4 md:px-8 overflow-hidden w-full"
+            >
+              <div class="max-w-7xl mx-auto">
+                <div
+                  class="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center mb-24"
+                >
+                  <div class="lg:w-[55%]">
+                    <div class="overflow-hidden pb-4">
+                      <h2
+                        class="text-4xl md:text-6xl title-brand-tight text-white leading-[1.1]"
+                      >
+                        Sistemas a medida.
+                      </h2>
+                    </div>
+                    <div class="overflow-hidden mb-12 pb-4">
+                      <h2
+                        class="text-4xl md:text-6xl title-brand-tight leading-[1.1]"
+                      >
+                        <span
+                          class="text-transparent bg-clip-text bg-brand-gradient bg-[length:200%_auto] bg-left"
+                          >Automatización sin límites.</span
+                        >
+                      </h2>
+                    </div>
+                    <p
+                      class="text-slate-400 text-lg md:text-xl font-medium leading-relaxed max-w-xl"
+                    >
+                      Tus arquitectos de software y socios t&eacute;cnicos. Desarrollamos infraestructura digital de alta ingenier&iacute;a y automatizaci&oacute;n con IA, respaldados por una capa de experiencia y marca que convierte.
+                    </p>
+                  </div>
+                  <div
+                    class="lg:w-[45%] relative group ml-auto perspective-1000"
+                  >
+                    <div
+                      class="absolute inset-x-[-10%] inset-y-[-10%] bg-brand-gradient blur-[100px] pointer-events-none opacity-50"
+                      ></div>
+                    <div
+                      class="relative z-10 w-full aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl group/img bg-white"
+                    >
+                      <div class="w-full h-full">
+                        <img
+                          alt="Jorge y Mariangel de DUALINK"
+                          class="w-full h-full object-cover object-center grayscale-[30%] group-hover/img:grayscale-0 scale-[1.12] group-hover/img:scale-[1.25] transition-all duration-700 ease-out"
+                          src="./brand/jorge-mariangel-quehacemos.png"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Estructura en 2 Pilares: Core de Ingeniería + Experiencia & Marca -->
+                <div class="space-y-16">
+                  <!-- PILAR 1: Core de Ingeniería & Automatización -->
+                  <div class="rounded-[2.5rem] bg-gradient-to-b from-slate-900/90 to-black/90 border border-brand-blue/30 p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                    <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-blue/10 blur-[100px] pointer-events-none"></div>
+
+                    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 pb-8 border-b border-white/10 relative z-10">
+                      <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-blue/10 border border-brand-blue/30 text-brand-blue mb-4 font-mono">
+                          <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span>
+                          Pilar 1 &middot; Alta Ingenier&iacute;a &amp; Software
+                        </div>
+                        <h3 class="text-3xl md:text-5xl font-black text-white title-brand-tight">
+                          Core de Ingenier&iacute;a &amp; Automatizaci&oacute;n
+                        </h3>
+                        <p class="text-slate-400 text-base md:text-lg mt-3 max-w-2xl font-medium leading-relaxed">
+                          Construimos la columna vertebral tecnol&oacute;gica de tu negocio: arquitecturas escalables, integraciones complejas y flujos automatizados con IA para operar con m&aacute;xima precisi&oacute;n y rentabilidad.
+                        </p>
+                      </div>
+                      <div class="shrink-0">
+                        <a href="https://wa.me/584243799214?text=Hola%20DuaLink!%20Quiero%20auditar%20mis%20procesos%20y%20descubrir%20qu%C3%A9%20automatizar."
+                          target="_blank" rel="noopener noreferrer"
+                          class="inline-flex items-center gap-2 text-sm font-bold text-white bg-brand-gradient hover:opacity-95 px-6 py-3 rounded-full transition-all shadow-lg hover:scale-105 whitespace-nowrap">
+                          Audita tus procesos
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Grid de Soluciones de Ingeniería -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+                      <!-- Apps Web -->
+                      <div class="p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-brand-blue/40 transition-all duration-300 group flex flex-col justify-between">
+                        <div>
+                          <div class="p-3 w-fit rounded-xl bg-brand-blue/20 border border-brand-blue/40 text-brand-blue mb-4 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <polyline points="16 18 22 12 16 6"></polyline>
+                              <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                          </div>
+                          <h4 class="text-xl font-bold text-white group-hover:text-brand-blue transition-colors mb-2">
+                            Apps Web
+                          </h4>
+                          <p class="text-slate-400 text-sm leading-relaxed">
+                            Desarrollo a medida de aplicaciones web robustas, r&aacute;pidas y escalables con Next.js, React y Supabase.
+                          </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                          <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Next.js</span>
+                          <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Supabase</span>
+                        </div>
+                      </div>
+
+                      <!-- Sistemas CRM -->
+                      <div class="p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-brand-blue/40 transition-all duration-300 group flex flex-col justify-between">
+                        <div>
+                          <div class="p-3 w-fit rounded-xl bg-brand-blue/20 border border-brand-blue/40 text-brand-blue mb-4 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                              <circle cx="9" cy="7" r="4"></circle>
+                              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                          </div>
+                          <h4 class="text-xl font-bold text-white group-hover:text-brand-blue transition-colors mb-2">
+                            Sistemas CRM
+                          </h4>
+                          <p class="text-slate-400 text-sm leading-relaxed">
+                            Centraliza clientes, automatiza pipelines comerciales y unifica el seguimiento de ventas de principio a fin.
+                          </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                          <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Pipelines</span>
+                          <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Lead Tracking</span>
+                        </div>
+                      </div>
+
+                      <!-- Workflows n8n -->
+                      <div class="p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-brand-blue/40 transition-all duration-300 group flex flex-col justify-between">
+                        <div>
+                          <div class="p-3 w-fit rounded-xl bg-brand-blue/20 border border-brand-blue/40 text-brand-blue mb-4 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <rect x="2" y="2" width="8" height="8" rx="2"></rect>
+                              <rect x="14" y="2" width="8" height="8" rx="2"></rect>
+                              <rect x="14" y="14" width="8" height="8" rx="2"></rect>
+                              <rect x="2" y="14" width="8" height="8" rx="2"></rect>
+                              <path d="M6 10v4"></path>
+                              <path d="M18 10v4"></path>
+                              <path d="M10 6h4"></path>
+                            </svg>
+                          </div>
+                          <h4 class="text-xl font-bold text-white group-hover:text-brand-blue transition-colors mb-2">
+                            Workflows n8n
+                          </h4>
+                          <p class="text-slate-400 text-sm leading-relaxed">
+                            Automatizaci&oacute;n integral de procesos con n8n. Conectamos tus herramientas para erradicar tareas repetitivas.
+                          </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                          <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">n8n</span>
+                          <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Webhooks</span>
+                        </div>
+                      </div>
+
+                      <!-- Soluciones con IA -->
+                      <div class="p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-brand-blue/40 transition-all duration-300 group flex flex-col justify-between">
+                        <div>
+                          <div class="p-3 w-fit rounded-xl bg-brand-blue/20 border border-brand-blue/40 text-brand-blue mb-4 group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                          </div>
+                          <h4 class="text-xl font-bold text-white group-hover:text-brand-blue transition-colors mb-2">
+                            Soluciones con IA
+                          </h4>
+                          <p class="text-slate-400 text-sm leading-relaxed">
+                            Inteligencia Artificial aplicada: chatbots avanzados, automatizaci&oacute;n de reportes y agentes operativos aut&oacute;nomos.
+                          </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                          <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Chatbots</span>
+                          <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Agentes IA</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- PILAR 2: Experiencia & Marca (Design & Media) -->
+                  <div class="rounded-[2.5rem] bg-gradient-to-b from-slate-900/60 to-black/60 border border-brand-purple/30 p-8 md:p-12 shadow-xl relative overflow-hidden">
+                    <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-purple/10 blur-[100px] pointer-events-none"></div>
+
+                    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 pb-8 border-b border-white/10 relative z-10">
+                      <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-purple/10 border border-brand-purple/30 text-brand-purple mb-4 font-mono">
+                          <span class="w-2 h-2 rounded-full bg-brand-purple"></span>
+                          Pilar 2 &middot; Complemento de Experiencia &amp; Marca
+                        </div>
+                        <h3 class="text-3xl md:text-5xl font-black text-white title-brand-tight">
+                          Experiencia &amp; Marca <span class="text-slate-400 text-2xl md:text-4xl font-normal">(Design &amp; Media)</span>
+                        </h3>
+                        <p class="text-slate-400 text-base md:text-lg mt-3 max-w-2xl font-medium leading-relaxed">
+                          El complemento creativo y comunicacional que garantiza que tu software no solo funcione con precisi&oacute;n, sino que comunique valor, cautive y convierta.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Grid de Servicios Creativos y de Experiencia -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+                      <!-- UI/UX Premium & Portafolios -->
+                      <div class="p-6 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 hover:border-brand-purple/40 transition-all duration-300 group flex flex-col justify-between">
+                        <div>
+                          <div class="p-3 w-fit rounded-xl bg-brand-purple/20 border border-brand-purple/40 text-brand-purple mb-4 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(17,94,89,0.3)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                              <line x1="3" y1="9" x2="21" y2="9"></line>
+                              <line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg>
+                          </div>
+                          <h4 class="text-xl font-bold text-white group-hover:text-brand-purple transition-colors mb-2">
+                            UI/UX Premium &amp; Portafolios
+                          </h4>
+                          <p class="text-slate-400 text-sm leading-relaxed">
+                            Dise&ntilde;o de interfaces intuitivas y vitrinas digitales de alto est&aacute;ndar est&eacute;tico que elevan la percepci&oacute;n y usabilidad de tu producto.
+                          </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                          <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Apple Style</span>
+                          <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Vitrinas Digitales</span>
+                        </div>
+                      </div>
+
+                      <!-- Identidad Visual -->
+                      <div class="p-6 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 hover:border-brand-purple/40 transition-all duration-300 group flex flex-col justify-between">
+                        <div>
+                          <div class="p-3 w-fit rounded-xl bg-brand-purple/20 border border-brand-purple/40 text-brand-purple mb-4 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(17,94,89,0.3)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                          </div>
+                          <h4 class="text-xl font-bold text-white group-hover:text-brand-purple transition-colors mb-2">
+                            Identidad Visual
+                          </h4>
+                          <p class="text-slate-400 text-sm leading-relaxed">
+                            Construcci&oacute;n integral de marca: sistemas gr&aacute;ficos, logotipos, paletas crom&aacute;ticas y manuales para posicionar tu empresa como referente.
+                          </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                          <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Brand Book</span>
+                          <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Design System</span>
+                        </div>
+                      </div>
+
+                      <!-- Contenido de Impacto & Edición de Video -->
+                      <div class="p-6 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 hover:border-brand-purple/40 transition-all duration-300 group flex flex-col justify-between">
+                        <div>
+                          <div class="p-3 w-fit rounded-xl bg-brand-purple/20 border border-brand-purple/40 text-brand-purple mb-4 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(17,94,89,0.3)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                            </svg>
+                          </div>
+                          <h4 class="text-xl font-bold text-white group-hover:text-brand-purple transition-colors mb-2">
+                            Contenido de Impacto
+                          </h4>
+                          <p class="text-slate-400 text-sm leading-relaxed">
+                            Edici&oacute;n de video din&aacute;mica y postproducci&oacute;n audiovisual pensada para retener atenci&oacute;n y explicar productos tecnol&oacute;gicos.
+                          </p>
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                          <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Video Motion</span>
+                          <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Social Media</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Banner CTA específico / complementario dentro de Quehacemos -->
+                  <div class="rounded-3xl bg-gradient-to-r from-slate-900 via-zinc-900 to-black border border-white/10 p-8 md:p-10 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
+                    <div class="absolute -left-10 top-0 w-64 h-64 bg-brand-blue/10 blur-[80px] pointer-events-none"></div>
+                    <div class="text-left relative z-10 max-w-xl">
+                      <span class="text-xs font-mono font-bold uppercase tracking-widest text-brand-blue block mb-2">
+                        Diagn&oacute;stico T&eacute;cnico Sin Costo
+                      </span>
+                      <h4 class="text-2xl md:text-3xl font-black text-white">
+                        &iquest;No sabes por d&oacute;nde empezar a optimizar?
+                      </h4>
+                      <p class="text-slate-400 text-sm md:text-base mt-2 leading-relaxed">
+                        Audita tus procesos y descubre qu&eacute; automatizar. En 15 minutos identificamos los cuellos de botella de tu operaci&oacute;n y las soluciones t&eacute;cnicas de mayor retorno.
+                      </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto shrink-0 relative z-10">
+                      <a href="https://wa.me/584243799214?text=Hola%20DuaLink!%20Quiero%20agendar%20una%20llamada%20de%20diagn%C3%B3stico%20t%C3%A9cnico%20de%2015%20min."
+                        target="_blank" rel="noopener noreferrer"
+                        class="bg-brand-gradient text-white px-6 py-3.5 rounded-full font-bold text-sm text-center hover:scale-105 transition-all shadow-lg whitespace-nowrap flex items-center justify-center gap-2">
+                        Agenda llamada de diagn&oacute;stico (15 min)
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M7 7h10v10"></path><path d="M7 17 17 7"></path>
+                        </svg>
+                      </a>
+                      <a href="#contacto"
+                        class="bg-white/5 hover:bg-white/10 text-white px-6 py-3.5 rounded-full font-bold text-sm text-center border border-white/10 transition-all whitespace-nowrap">
+                        Auditar procesos
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Proceso + Philosophy + Testimonials (unified block) -->
+            <section
+              id="proceso"
+              class="bg-zinc-900 text-white py-32 px-4 md:px-8 overflow-hidden w-full relative z-10"
+            >
+              <!-- Background decorative elements -->
+
+              <div class="max-w-7xl mx-auto relative z-10">
+                <div class="text-center mb-24">
+                  <h2
+                    class="text-4xl sm:text-5xl md:text-6xl title-brand-tight text-white mb-6"
+                  >
+                    Cada proyecto empieza
+                    <span class="text-brand-purple">igual.</span>
+                  </h2>
+                  <p
+                    class="text-slate-500 text-xs sm:text-sm font-bold tracking-[0.25em] uppercase"
+                  >
+                    Nuestro Proceso Creativo
+                  </p>
+                </div>
+
+                <div
+                  class="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start w-full"
+                >
+                  <!-- Left Column: Steps -->
+                  <div class="lg:w-1/2 flex flex-col relative w-full">
+                    <!-- Vertical Line -->
+                    <div
+                      class="absolute left-[24px] md:left-[28px] top-8 bottom-8 w-px bg-slate-800 -z-10"
+                    ></div>
+
+                    <div class="flex flex-col gap-14">
+                      <!-- Step 1 -->
+                      <div class="flex items-start gap-6 group">
+                        <div
+                          class="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-full bg-zinc-950 border border-slate-800 flex items-center justify-center text-brand-purple font-black text-lg md:text-xl shadow-[0_0_20px_rgba(17,94,89,0.15)] transition-all duration-300 group-hover:scale-110 group-hover:bg-brand-purple/10 group-hover:border-brand-purple/30 group-hover:shadow-[0_0_30px_rgba(17,94,89,0.3)]"
+                        >
+                          1
+                        </div>
+                        <div class="pt-2 md:pt-3 flex-1">
+                          <h3
+                            class="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-brand-purple transition-colors duration-300"
+                          >
+                            Diagn&oacute;stico t&eacute;cnico &amp; auditor&iacute;a.
+                          </h3>
+                          <p
+                            class="text-slate-400 text-sm md:text-base font-medium leading-relaxed"
+                          >
+                            Analizamos tus procesos actuales, cuellos de botella y objetivos para descubrir con exactitud qu&eacute; sistematizar y automatizar.
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- Step 2 -->
+                      <div class="flex items-start gap-6 group">
+                        <div
+                          class="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-full bg-zinc-950 border border-slate-800 flex items-center justify-center text-brand-purple font-black text-lg md:text-xl shadow-[0_0_20px_rgba(17,94,89,0.15)] transition-all duration-300 group-hover:scale-110 group-hover:bg-brand-purple/10 group-hover:border-brand-purple/30 group-hover:shadow-[0_0_30px_rgba(17,94,89,0.3)]"
+                        >
+                          2
+                        </div>
+                        <div class="pt-2 md:pt-3 flex-1">
+                          <h3
+                            class="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-brand-purple transition-colors duration-300"
+                          >
+                            La aterrizamos.
+                          </h3>
+                          <p
+                            class="text-slate-400 text-sm md:text-base font-medium leading-relaxed"
+                          >
+                            Definimos la viabilidad técnica y el alcance real
+                            del proyecto.
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- Step 3 -->
+                      <div class="flex items-start gap-6 group">
+                        <div
+                          class="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-full bg-zinc-950 border border-slate-800 flex items-center justify-center text-brand-purple font-black text-lg md:text-xl shadow-[0_0_20px_rgba(17,94,89,0.15)] transition-all duration-300 group-hover:scale-110 group-hover:bg-brand-purple/10 group-hover:border-brand-purple/30 group-hover:shadow-[0_0_30px_rgba(17,94,89,0.3)]"
+                        >
+                          3
+                        </div>
+                        <div class="pt-2 md:pt-3 flex-1">
+                          <h3
+                            class="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-brand-purple transition-colors duration-300"
+                          >
+                            La estructuramos.
+                          </h3>
+                          <p
+                            class="text-slate-400 text-sm md:text-base font-medium leading-relaxed"
+                          >
+                            Creamos la arquitectura lógica para que sea
+                            escalable.
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- Step 4 -->
+                      <div class="flex items-start gap-6 group">
+                        <div
+                          class="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-full bg-zinc-950 border border-slate-800 flex items-center justify-center text-brand-purple font-black text-lg md:text-xl shadow-[0_0_20px_rgba(17,94,89,0.15)] transition-all duration-300 group-hover:scale-110 group-hover:bg-brand-purple/10 group-hover:border-brand-purple/30 group-hover:shadow-[0_0_30px_rgba(17,94,89,0.3)]"
+                        >
+                          4
+                        </div>
+                        <div class="pt-2 md:pt-3 flex-1">
+                          <h3
+                            class="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-brand-purple transition-colors duration-300"
+                          >
+                            La diseñamos.
+                          </h3>
+                          <p
+                            class="text-slate-400 text-sm md:text-base font-medium leading-relaxed"
+                          >
+                            Damos vida a la interfaz con un enfoque Premium
+                            Apple-style.
+                          </p>
+                        </div>
+                      </div>
+
+                      <!-- Step 5 -->
+                      <div class="flex items-start gap-6 group">
+                        <div
+                          class="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-full bg-zinc-950 border border-slate-800 flex items-center justify-center text-brand-purple font-black text-lg md:text-xl shadow-[0_0_20px_rgba(17,94,89,0.15)] transition-all duration-300 group-hover:scale-110 group-hover:bg-brand-purple/10 group-hover:border-brand-purple/30 group-hover:shadow-[0_0_30px_rgba(17,94,89,0.3)]"
+                        >
+                          5
+                        </div>
+                        <div class="pt-2 md:pt-3 flex-1">
+                          <h3
+                            class="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-brand-purple transition-colors duration-300"
+                          >
+                            La desarrollamos.
+                          </h3>
+                          <p
+                            class="text-slate-400 text-sm md:text-base font-medium leading-relaxed"
+                          >
+                            Escribimos código limpio, rápido y listo para
+                            producción.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Right Column: Info Card -->
+                  <div class="lg:w-1/2 w-full mt-4 lg:mt-0">
+                    <div
+                      class="p-8 md:p-12 lg:p-14 rounded-[2.5rem] bg-zinc-900/50 border border-white/5 shadow-2xl sticky top-32"
+                    >
+                      <ul class="space-y-8 mb-16">
+                        <li
+                          class="flex items-center gap-4 text-slate-400 text-lg md:text-xl italic font-medium"
+                        >
+                          <span
+                            class="w-2 h-2 rounded-full bg-brand-purple shrink-0 shadow-[0_0_10px_rgba(17,94,89,0.8)]"
+                          ></span>
+                          No trabajamos con paquetes rígidos.
+                        </li>
+                        <li
+                          class="flex items-center gap-4 text-slate-400 text-lg md:text-xl italic font-medium"
+                        >
+                          <span
+                            class="w-2 h-2 rounded-full bg-brand-purple shrink-0 shadow-[0_0_10px_rgba(17,94,89,0.8)]"
+                          ></span>
+                          No copiamos plantillas genéricas.
+                        </li>
+                        <li
+                          class="flex items-center gap-4 text-slate-400 text-lg md:text-xl italic font-medium"
+                        >
+                          <span
+                            class="w-2 h-2 rounded-full bg-brand-purple shrink-0 shadow-[0_0_10px_rgba(17,94,89,0.8)]"
+                          ></span>
+                          No vendemos promesas vacías.
+                        </li>
+                      </ul>
+
+                      <div class="w-full h-px bg-slate-800/80 mb-12"></div>
+
+                      <div>
+                        <h3
+                          class="text-4xl md:text-5xl lg:text-5xl font-display font-black text-white leading-[1.1] mb-4"
+                        >
+                          Construimos <br /><span class="text-brand-purple"
+                            >contigo.</span
+                          >
+                        </h3>
+                        <p
+                          class="text-slate-500 text-base md:text-lg font-medium leading-relaxed"
+                        >
+                          Somos tus socios técnicos en cada línea de código.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Philosophy Section -->
+            <section
+              class="px-4 md:px-8 bg-zinc-900 text-white overflow-hidden w-full relative z-10 flex flex-col items-center justify-center text-center py-24"
+            >
+              <div class="relative z-10 max-w-4xl w-full mx-auto px-4">
+                <!-- Card -->
+                <div
+                  class="relative bg-[#0d1117] border border-white/10 rounded-[2rem] px-10 md:px-16 py-14 md:py-16 overflow-hidden shadow-2xl text-center"
+                >
+                  <!-- Decorative large quote mark top-right -->
+                  <span
+                    class="absolute top-6 right-8 text-white/10 font-serif select-none pointer-events-none"
+                    style="font-size: 7rem; line-height: 1; font-weight: 900"
+                    >"</span
+                  >
+
+                  <h2
+                    class="text-white text-2xl md:text-3xl lg:text-4xl font-black font-display tracking-widest mb-10 uppercase"
+                  >
+                    Nuestra Filosofía
+                  </h2>
+
+                  <p
+                    class="text-white/90 text-2xl md:text-3xl lg:text-4xl font-medium leading-snug mb-10 tracking-tight"
+                  >
+                    "Si el código no resuelve un problema de
+                    <em class="not-italic font-bold italic">negocio</em>, es
+                    solo un pasatiempo caro."
+                  </p>
+
+                  <div class="flex flex-col items-center gap-3">
+                    <div
+                      class="w-10 h-[3px] bg-gradient-to-r from-blue-600 to-violet-500 rounded-full"
+                    ></div>
+                    <span
+                      class="text-slate-400 text-xs font-bold tracking-[0.3em] uppercase"
+                      >DuaLink Studio</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section
+              id="pruebareal"
+              class="bg-zinc-900 text-white relative z-10 w-full px-4 md:px-8 pt-16 pb-40 rounded-b-[3rem] shadow-[0_20px_40px_rgba(0,0,0,0.2)]"
+            >
+              <div class="max-w-6xl mx-auto relative z-10">
+                <div class="text-center mb-16 relative">
+                  <span
+                    class="text-blue-500 text-sm md:text-base font-bold tracking-[0.2em] uppercase mb-4 block"
+                    >Confianza</span
+                  >
+                  <h2
+                    class="text-white text-5xl md:text-6xl lg:text-7xl font-black font-display tracking-tighter leading-none relative z-10"
+                  >
+                    Lo que dicen<br />
+                    <span
+                      class="text-transparent bg-clip-text bg-brand-gradient"
+                      >de nosotros</span
+                    >
+                  </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <!-- Review 1 -->
+                  <div
+                    class="bg-zinc-950/60 border border-white/5 rounded-[2rem] p-10 text-left shadow-2xl relative overflow-hidden group hover:border-brand-purple/50 transition-colors duration-500"
+                  >
+                    <div class="flex gap-1.5 mb-8">
+                      <!-- 5 Stars SVG -->
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-brand-purple"
+                      >
+                        <path
+                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-brand-purple"
+                      >
+                        <path
+                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-brand-purple"
+                      >
+                        <path
+                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-brand-purple"
+                      >
+                        <path
+                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-brand-purple"
+                      >
+                        <path
+                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        />
+                      </svg>
+                    </div>
+                    <p
+                      class="text-xl md:text-2xl font-medium text-slate-300 italic mb-10 leading-snug font-serif"
+                    >
+                      "Jorge y Mariangel no solo programan, ellos se meten en el
+                      alma del negocio. Los resultados superaron por mucho lo
+                      que esperábamos."
+                    </p>
+                    <p class="text-white font-bold tracking-tight text-lg">
+                      — Director de Startup
+                    </p>
+                  </div>
+
+                  <!-- Review 2 -->
+                  <div
+                    class="bg-zinc-950/60 border border-white/5 rounded-[2rem] p-10 text-left shadow-2xl relative overflow-hidden group hover:border-brand-purple/50 transition-colors duration-500"
+                  >
+                    <div class="flex gap-1.5 mb-8">
+                      <!-- 5 Stars SVG -->
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-brand-purple"
+                      >
+                        <path
+                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-brand-purple"
+                      >
+                        <path
+                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-brand-purple"
+                      >
+                        <path
+                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-brand-purple"
+                      >
+                        <path
+                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        />
+                      </svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-brand-purple"
+                      >
+                        <path
+                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        />
+                      </svg>
+                    </div>
+                    <p
+                      class="text-xl md:text-2xl font-medium text-slate-300 italic mb-10 leading-snug font-serif"
+                    >
+                      "Pocas veces encuentras un equipo que combine diseño
+                      premium con una arquitectura técnica tan sólida. Son los
+                      mejores."
+                    </p>
+                    <p class="text-white font-bold tracking-tight text-lg">
+                      — Emprendedor Digital
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Contact CTA block -->
+            <section id="contacto" class="py-24 px-6 bg-white relative z-0">
+              <div
+                class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-center relative z-10"
+              >
+                <!-- Left: Branding & CTA -->
+                <div class="w-full lg:w-1/2 text-left">
+                  <!-- Status Badge -->
+                  <div
+                    class="inline-flex items-center gap-2 bg-slate-900 text-white rounded-full px-4 py-2 text-xs font-bold tracking-[0.15em] uppercase mb-8"
+                  >
+                    <span
+                      class="w-2 h-2 rounded-full bg-brand-purple animate-pulse shrink-0"
+                    ></span>
+                    Status: Buscando Clientes WOW
+                  </div>
+
+                  <h2
+                    class="text-5xl sm:text-6xl lg:text-7xl font-display font-black text-slate-900 leading-[0.9] tracking-tighter mb-8"
+                  >
+                    Diseño &amp; Código <br /><span
+                      class="text-transparent bg-clip-text bg-brand-gradient"
+                      >Extraordinario</span
+                    >.
+                  </h2>
+
+                  <p
+                    class="text-xl text-slate-400 max-w-md leading-snug font-bold mb-10"
+                  >
+                    ¿Hacemos algo épico?<br /><span class="text-slate-900"
+                      >Rellena el formulario y hablemos.</span
+                    >
+                  </p>
+
+                  <!-- WhatsApp Direct -->
+                  <a
+                    href="https://wa.me/584243799214"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-4 border border-slate-200 rounded-2xl px-6 py-4 hover:border-brand-purple/50 hover:bg-slate-50 transition-all group"
+                  >
+                    <div
+                      class="w-10 h-10 rounded-xl bg-brand-gradient flex items-center justify-center shrink-0"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="text-white"
+                      >
+                        <path
+                          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                        />
+                        <path
+                          d="M11.998 2C6.477 2 2 6.477 2 12c0 1.826.487 3.538 1.338 5.016L2 22l5.118-1.323A9.956 9.956 0 0 0 11.998 22C17.522 22 22 17.523 22 12S17.522 2 11.998 2zm0 18c-1.681 0-3.254-.478-4.587-1.306l-.328-.2-3.038.785.807-2.957-.217-.34A8 8 0 1 1 20 12a8 8 0 0 1-8.002 8z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <p
+                        class="font-black text-slate-900 text-base leading-tight"
+                      >
+                        WhatsApp Directo
+                      </p>
+                      <p class="text-sm text-brand-purple font-medium">
+                        Sin intermediarios, tú y nosotros.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Right: Contact Form -->
+                <div class="w-full lg:w-1/2">
+                  <div
+                    class="bg-white border border-slate-200/80 rounded-[2.5rem] p-8 md:p-10 shadow-2xl"
+                  >
+                    <form onsubmit="handleFormSubmit(event)" class="space-y-6">
+                      <!-- Row 1: Nombre + WhatsApp -->
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label
+                            class="block text-[10px] font-bold tracking-[0.2em] uppercase text-slate-400 mb-2"
+                            >Tu Nombre</label
+                          >
+                          <div class="relative">
+                            <svg
+                              class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                            >
+                              <path
+                                d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                              />
+                              <circle cx="12" cy="7" r="4" />
+                            </svg>
+                            <input
+                              type="text"
+                              id="form-nombre"
+                              placeholder="Ej. Jorge o Mariangel"
+                              required
+                              class="w-full pl-9 pr-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-700 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-purple/30 focus:border-brand-purple/50 transition-all"
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <label
+                            class="block text-[10px] font-bold tracking-[0.2em] uppercase text-slate-400 mb-2"
+                            >WhatsApp</label
+                          >
+                          <div class="relative">
+                            <svg
+                              class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                            >
+                              <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.17 6.17l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
+                              />
+                            </svg>
+                            <input
+                              type="tel"
+                              id="form-whatsapp"
+                              placeholder="+58..."
+                              required
+                              class="w-full pl-9 pr-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-700 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-purple/30 focus:border-brand-purple/50 transition-all"
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Row 2: Category Custom Dropdown -->
+                      <div>
+                        <label
+                          class="block text-[10px] font-bold tracking-[0.2em] uppercase text-slate-400 mb-2"
+                          >¿Qué vas a crear?</label
+                        >
+                        <div class="relative" id="dd-categoria-wrapper">
+                          <!-- Hidden input to hold value for form submission -->
+                          <input
+                            type="hidden"
+                            id="form-categoria"
+                            name="categoria"
+                            required
+                          />
+                          <!-- Trigger button -->
+                          <button
+                            type="button"
+                            id="dd-categoria-btn"
+                            onclick="toggleDropdown('categoria')"
+                            class="w-full flex items-center justify-between pl-9 pr-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-400 bg-white focus:outline-none focus:ring-2 focus:ring-brand-purple/30 hover:border-slate-300 transition-all"
+                          >
+                            <span id="dd-categoria-label"
+                              >Elige una categoría</span
+                            >
+                            <svg
+                              id="dd-categoria-arrow"
+                              class="w-4 h-4 text-slate-400 transition-transform duration-300"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                            >
+                              <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                          </button>
+                          <svg
+                            class="absolute left-3 top-[14px] text-slate-400 w-4 h-4 pointer-events-none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <line x1="3" y1="9" x2="21" y2="9" />
+                            <line x1="9" y1="21" x2="9" y2="9" />
+                          </svg>
+                          <!-- Dropdown panel -->
+                          <div
+                            id="dd-categoria-panel"
+                            class="absolute left-0 right-0 top-[calc(100%+6px)] z-50 bg-white border border-slate-200 rounded-2xl shadow-xl overflow-hidden origin-top scale-y-0 opacity-0 transition-all duration-200 ease-out pointer-events-none"
+                          >
+                            <ul class="py-2 divide-y divide-slate-100 max-h-60 overflow-y-auto">
+                              <li>
+                                <button type="button" onclick="selectOption('categoria', 'Diagnóstico Técnico (15 min) / Auditoría')"
+                                  class="w-full text-left px-5 py-3 text-sm font-semibold text-emerald-700 bg-emerald-50/50 hover:bg-emerald-50 transition-colors flex items-center justify-between">
+                                  <span>Diagnóstico Técnico (15 min)</span>
+                                  <span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">Recomendado</span>
+                                </button>
+                              </li>
+                              <li>
+                                <button type="button" onclick="selectOption('categoria', 'Core: Automatización & Flujos n8n')"
+                                  class="w-full text-left px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                  Core: Automatización &amp; Flujos n8n
+                                </button>
+                              </li>
+                              <li>
+                                <button type="button" onclick="selectOption('categoria', 'Core: Sistemas CRM a Medida')"
+                                  class="w-full text-left px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                  Core: Sistemas CRM a Medida
+                                </button>
+                              </li>
+                              <li>
+                                <button type="button" onclick="selectOption('categoria', 'Core: Apps Web & Software')"
+                                  class="w-full text-left px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                  Core: Apps Web &amp; Software
+                                </button>
+                              </li>
+                              <li>
+                                <button type="button" onclick="selectOption('categoria', 'Core: Soluciones con IA')"
+                                  class="w-full text-left px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                  Core: Soluciones con IA
+                                </button>
+                              </li>
+                              <li>
+                                <button type="button" onclick="selectOption('categoria', 'Experiencia: UI/UX & Portafolios')"
+                                  class="w-full text-left px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                  Experiencia: UI/UX &amp; Portafolios
+                                </button>
+                              </li>
+                              <li>
+                                <button type="button" onclick="selectOption('categoria', 'Experiencia: Identidad Visual')"
+                                  class="w-full text-left px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                  Experiencia: Identidad Visual
+                                </button>
+                              </li>
+                              <li>
+                                <button type="button" onclick="selectOption('categoria', 'Experiencia: Contenido de Impacto / Video')"
+                                  class="w-full text-left px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                  Experiencia: Contenido de Impacto / Video
+                                </button>
+                              </li>
+                              <li>
+                                <button type="button" onclick="selectOption('categoria', 'Otro')"
+                                  class="w-full text-left px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                  Otro
+                                </button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Row 3: Budget Custom Dropdown -->
+                      <div>
+                        <label
+                          class="block text-[10px] font-bold tracking-[0.2em] uppercase text-slate-400 mb-2"
+                          >Tu Inversión Proyectada ($)</label
+                        >
+                        <div class="relative" id="dd-inversion-wrapper">
+                          <input
+                            type="hidden"
+                            id="form-inversion"
+                            name="inversion"
+                            required
+                          />
+                          <button
+                            type="button"
+                            id="dd-inversion-btn"
+                            onclick="toggleDropdown('inversion')"
+                            class="w-full flex items-center justify-between pl-9 pr-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-400 bg-white focus:outline-none focus:ring-2 focus:ring-brand-purple/30 hover:border-slate-300 transition-all"
+                          >
+                            <span id="dd-inversion-label"
+                              >Elige un rango realista</span
+                            >
+                            <svg
+                              id="dd-inversion-arrow"
+                              class="w-4 h-4 text-slate-400 transition-transform duration-300"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                            >
+                              <polyline points="6 9 12 15 18 9" />
+                            </svg>
+                          </button>
+                          <svg
+                            class="absolute left-3 top-[14px] text-slate-400 w-4 h-4 pointer-events-none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <line x1="12" y1="1" x2="12" y2="23" />
+                            <path
+                              d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                            />
+                          </svg>
+                          <div
+                            id="dd-inversion-panel"
+                            class="absolute left-0 right-0 top-[calc(100%+6px)] z-50 bg-white border border-slate-200 rounded-2xl shadow-xl overflow-hidden origin-top scale-y-0 opacity-0 transition-all duration-200 ease-out pointer-events-none"
+                          >
+                            <ul class="py-2 divide-y divide-slate-100">
+                              <li>
+                                <button
+                                  type="button"
+                                  onclick="
+                                    selectOption('inversion', '$500 – $1,000')
+                                  "
+                                  class="w-full text-left px-5 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+                                >
+                                  $500 – $1,000
+                                </button>
+                              </li>
+                              <li>
+                                <button
+                                  type="button"
+                                  onclick="
+                                    selectOption('inversion', '$500 - $1,500')
+                                  "
+                                  class="w-full text-left px-5 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+                                >
+                                  $500 - $1,500
+                                </button>
+                              </li>
+                              <li>
+                                <button
+                                  type="button"
+                                  onclick="
+                                    selectOption('inversion', '$1,500 - $3,000')
+                                  "
+                                  class="w-full text-left px-5 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+                                >
+                                  $1,500 - $3,000
+                                </button>
+                              </li>
+                              <li>
+                                <button
+                                  type="button"
+                                  onclick="
+                                    selectOption('inversion', '$3,000 - $5,000')
+                                  "
+                                  class="w-full text-left px-5 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+                                >
+                                  $3,000 - $5,000
+                                </button>
+                              </li>
+                              <li>
+                                <button
+                                  type="button"
+                                  onclick="
+                                    selectOption('inversion', 'Más de $5,000')
+                                  "
+                                  class="w-full text-left px-5 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+                                >
+                                  Más de $5,000
+                                </button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Row 4: Details -->
+                      <div>
+                        <label
+                          class="block text-[10px] font-bold tracking-[0.2em] uppercase text-slate-400 mb-2"
+                          >Detalles del Éxito</label
+                        >
+                        <textarea
+                          id="form-detalles"
+                          rows="4"
+                          placeholder="Cuéntanos más para asombrarte..."
+                          required
+                          class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-700 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-purple/30 focus:border-brand-purple/50 transition-all resize-none"
+                        ></textarea>
+                      </div>
+
+                      <!-- Submit -->
+                      <button
+                        type="submit"
+                        class="w-full bg-slate-900 text-white font-black text-lg py-4 rounded-2xl flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg group relative overflow-hidden"
+                      >
+                        <div
+                          class="absolute inset-0 bg-brand-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        ></div>
+                        <span class="relative z-10">Enviar Propuesta</span>
+                        <svg
+                          class="relative z-10 w-5 h-5"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2.5"
+                        >
+                          <line x1="22" y1="2" x2="11" y2="13" />
+                          <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                        </svg>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+
+          <footer
+            id="contact"
+            class="text-white pt-24 pb-12 text-center rounded-t-[3rem] overflow-hidden relative z-10 shadow-[0_-20px_40px_rgba(0,0,0,0.2)]"
+            style="
+              background-color: #18181b;
+              background-image: radial-gradient(
+                circle,
+                rgba(110, 231, 183, 0.35) 1.5px,
+                transparent 1.5px
+              );
+              background-size: 20px 20px;
+            "
+          >
+            <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2
+                class="text-4xl sm:text-5xl md:text-7xl lg:text-[6rem] title-brand text-white mb-6 leading-tight"
+              >
+                &iquest;Listo para sistematizar y <br class="hidden md:block" />
+                <span
+                  class="relative inline-block px-2 rounded-xl"
+                  style="
+                    background-image: radial-gradient(
+                      circle,
+                      rgba(110, 231, 183, 0.5) 1.5px,
+                      transparent 1.5px
+                    );
+                    background-size: 12px 12px;
+                  "
+                  >escalar?</span
+                >
+              </h2>
+              <p class="text-lg md:text-2xl text-slate-400 font-medium mb-12 max-w-2xl mx-auto">
+                Audita tus procesos y descubre qu&eacute; automatizar, o agenda una llamada de diagn&oacute;stico t&eacute;cnico (15 min) sin costo.
+              </p>
+              <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a
+                  href="https://wa.me/584243799214?text=Hola%20DuaLink!%20Quiero%20agendar%20una%20llamada%20de%20diagn%C3%B3stico%20t%C3%A9cnico%20de%2015%20min."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-3 bg-brand-gradient text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg hover:scale-105 transition-transform shadow-lg"
+                  >Agenda diagn&oacute;stico t&eacute;cnico (15 min)
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="border-2 border-white rounded-full p-0.5"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path></svg
+                ></a>
+                <a
+                  href="https://wa.me/584243799214?text=Hola%20DuaLink!%20Quiero%20auditar%20mis%20procesos%20y%20descubrir%20qu%C3%A9%20automatizar."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg border border-white/20 transition-all"
+                  >Auditar mis procesos</a
+                >
+              </div>
+              <div
+                class="mt-32 pt-8 border-t border-slate-800/50 flex flex-col items-center justify-center"
+              >
+                <a
+                  href="/"
+                  class="flex flex-col items-center justify-center group mb-4"
+                >
+                  <div
+                    class="text-2xl md:text-3xl font-black font-display tracking-tighter leading-none flex items-center"
+                  >
+                    <span class="text-emerald-500">Dua</span>
+                    <span class="text-lime-800">Link</span>
+                  </div>
+                  <span
+                    class="text-[9px] md:text-[10px] font-bold tracking-[0.3em] text-emerald-500/80 mt-1 uppercase"
+                    >Studio</span
+                  >
+                </a>
+                <p class="text-slate-500 font-medium text-sm tracking-wide">
+                  Code &amp; Design con ADN venezolano. ✨
+                </p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Mobile menu toggle logic
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        mobileMenu.classList.toggle("flex");
+      });
+
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          mobileMenu.classList.remove("flex");
+        });
+      });
+
+      // Initialize GSAP ScrollTrigger
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Initial load animations (Hero section)
+      const tlHero = gsap.timeline({
+        defaults: { ease: "power3.out", duration: 1 },
+      });
+
+      tlHero
+        .from(
+          "#inicio .inline-block.px-5",
+          { y: -30, opacity: 0, duration: 0.8 },
+          0.2,
+        )
+        .from(
+          "#inicio h1 > div > span",
+          { y: 50, opacity: 0, stagger: 0.1, duration: 1 },
+          0.4,
+        )
+        .from("#inicio p", { y: 20, opacity: 0, duration: 0.8 }, 1)
+        .from(
+          "#inicio .xl\\:flex.absolute",
+          { x: (i) => (i === 0 ? -50 : 50), opacity: 0, duration: 1 },
+          1.2,
+        )
+        .from(
+          "#inicio img",
+          {
+            scale: 0.9,
+            opacity: 0,
+            rotation: -5,
+            duration: 1.2,
+            ease: "back.out(1.7)",
+          },
+          0.6,
+        )
+        .from(
+          "#hero-cta",
+          { y: 50, opacity: 0, scale: 0.8, duration: 0.8 },
+          1.4,
+        );
+
+      // Navbar Scroll Effect (Updated for better blending)
+      const navContainer = document.getElementById("navbar-container");
+      const mainNav = document.getElementById("main-nav");
+
+      window.addEventListener("scroll", () => {
+        const scrollPos = window.scrollY;
+        if (scrollPos > 40) {
+          // Scrolled: Transparent + Glassmorphism
+          mainNav.classList.remove("bg-black/95", "shadow-[0_8px_32px_rgba(0,0,0,0.5)]");
+          mainNav.classList.add("bg-black/40", "backdrop-blur-3xl", "border-white/20", "shadow-xl");
+        } else {
+          // Top: Solid & Premium
+          mainNav.classList.add("bg-black/95", "shadow-[0_8px_32px_rgba(0,0,0,0.5)]");
+          mainNav.classList.remove("bg-black/40", "backdrop-blur-3xl", "border-white/20", "shadow-xl");
+        }
+      });
+
+      // Video hover play/pause
+      function playVideo(id) {
+        const v = document.getElementById(id);
+        const icon = document.getElementById(id + "-icon");
+        if (v) {
+          v.play();
+        }
+        if (icon) {
+          icon.style.opacity = "0";
+          icon.style.pointerEvents = "none";
+        }
+      }
+      function pauseVideo(id) {
+        const v = document.getElementById(id);
+        const icon = document.getElementById(id + "-icon");
+        if (v) {
+          v.pause();
+          v.currentTime = 0;
+        }
+        if (icon) {
+          icon.style.opacity = "1";
+          icon.style.pointerEvents = "none";
+        }
+      }
+
+      // Custom Dropdown Logic
+      const openDropdowns = new Set();
+
+      function toggleDropdown(id) {
+        const panel = document.getElementById(`dd-${id}-panel`);
+        const arrow = document.getElementById(`dd-${id}-arrow`);
+        const isOpen = openDropdowns.has(id);
+
+        // Close all open dropdowns
+        openDropdowns.forEach((otherId) => {
+          document
+            .getElementById(`dd-${otherId}-panel`)
+            .classList.remove(
+              "scale-y-100",
+              "opacity-100",
+              "pointer-events-auto",
+            );
+          document
+            .getElementById(`dd-${otherId}-panel`)
+            .classList.add("scale-y-0", "opacity-0", "pointer-events-none");
+          document
+            .getElementById(`dd-${otherId}-arrow`)
+            .classList.remove("rotate-180");
+          openDropdowns.delete(otherId);
+        });
+
+        if (!isOpen) {
+          panel.classList.remove(
+            "scale-y-0",
+            "opacity-0",
+            "pointer-events-none",
+          );
+          panel.classList.add(
+            "scale-y-100",
+            "opacity-100",
+            "pointer-events-auto",
+          );
+          arrow.classList.add("rotate-180");
+          openDropdowns.add(id);
+        }
+      }
+
+      function selectOption(id, value) {
+        document.getElementById(`form-${id}`).value = value;
+        document.getElementById(`dd-${id}-label`).textContent = value;
+        document
+          .getElementById(`dd-${id}-label`)
+          .classList.remove("text-slate-400");
+        document
+          .getElementById(`dd-${id}-label`)
+          .classList.add("text-slate-700");
+        toggleDropdown(id); // close after selection
+      }
+
+      // Close dropdowns on outside click
+      document.addEventListener("click", function (e) {
+        ["categoria", "inversion"].forEach((id) => {
+          const wrapper = document.getElementById(`dd-${id}-wrapper`);
+          if (wrapper && !wrapper.contains(e.target) && openDropdowns.has(id)) {
+            toggleDropdown(id);
+          }
+        });
+      });
+
+      // Form Submit Handler
+      function handleFormSubmit(e) {
+        e.preventDefault();
+        const nombre = document.getElementById("form-nombre").value;
+        const whatsapp = document.getElementById("form-whatsapp").value;
+        const categoria = document.getElementById("form-categoria").value;
+        const inversion = document.getElementById("form-inversion").value;
+        const detalles = document.getElementById("form-detalles").value;
+        if (!categoria || !inversion) {
+          alert("Por favor selecciona una categoría y un rango de inversión.");
+          return;
+        }
+        const msg = `Hola! Me llamo *${nombre}*.\n📱 WhatsApp: ${whatsapp}\n🚀 Quiero crear: ${categoria}\n💰 Inversión proyectada: ${inversion}\n📝 Detalles: ${detalles}`;
+        window.open(
+          `https://wa.me/584243799214?text=${encodeURIComponent(msg)}`,
+          "_blank",
+        );
+      }
+
+      // Navbar animation
+      // Simplified Navbar load animation
+      gsap.to("#navbar-container", {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.2,
+      });
+
+      // Nosotros Section Animations
+      gsap.from("#nosotros img", {
+        scrollTrigger: {
+          trigger: "#nosotros",
+          start: "top 75%",
+        },
+        scale: 0.8,
+        rotation: -10,
+        opacity: 0,
+        duration: 1.5,
+        ease: "power3.out",
+      });
+
+      const aboutTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#nosotros",
+          start: "top 60%",
+        },
+      });
+
+      aboutTimeline
+        .from("#nosotros span.text-brand-purple", {
+          x: -30,
+          opacity: 0,
+          duration: 0.6,
+        })
+        .from("#nosotros h2", { y: 30, opacity: 0, duration: 0.8 }, "-=0.3")
+        .from(
+          "#nosotros p",
+          { y: 20, opacity: 0, stagger: 0.2, duration: 0.8 },
+          "-=0.4",
+        )
+        .from(
+          "#nosotros .stat-card",
+          { y: 30, opacity: 0, stagger: 0.15, duration: 0.8 },
+          "-=0.4",
+        );
+
+      // Stats Counter Animation
+      const counters = document.querySelectorAll(".stat-counter");
+      counters.forEach((counter) => {
+        const target = parseInt(counter.getAttribute("data-target"));
+        gsap.to(counter, {
+          innerText: target,
+          duration: 2,
+          snap: { innerText: 1 },
+          scrollTrigger: {
+            trigger: counter,
+            start: "top 90%",
+          },
+          onUpdate: function () {
+            if (target > 1000) {
+              counter.innerText = Math.floor(
+                this.targets()[0].innerText,
+              ).toLocaleString("es-ES");
+            }
+          },
+        });
+      });
+
+      // Que hacemos Section Animations
+      const workTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#quehacemos",
+          start: "top 60%",
+        },
+      });
+
+      workTimeline
+        .from("#quehacemos h2", {
+          y: 50,
+          opacity: 0,
+          stagger: 0.2,
+          duration: 0.8,
+        })
+        .from(
+          "#quehacemos p.max-w-xl",
+          { y: 20, opacity: 0, duration: 0.8 },
+          "-=0.4",
+        )
+        .from(
+          "#quehacemos .perspective-1000",
+          { x: 50, opacity: 0, rotationY: -15, duration: 1.2 },
+          "-=0.8",
+        );
+
+      // Contact CTA Animations
+      gsap.from("#contacto h2", {
+        scrollTrigger: {
+          trigger: "#contacto",
+          start: "top 75%",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      gsap.from("#contacto p", {
+        scrollTrigger: {
+          trigger: "#contacto",
+          start: "top 70%",
+        },
+        y: 20,
+        opacity: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: "power3.out",
+      });
+
+      gsap.from("#contacto a", {
+        scrollTrigger: {
+          trigger: "#contacto",
+          start: "top 70%",
+        },
+        scale: 0.9,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.4,
+        ease: "back.out(1.5)",
+      });
+
+      // Footer Animations
+      gsap.from("footer h2, footer p, footer a", {
+        scrollTrigger: {
+          trigger: "footer",
+          start: "top 80%",
+        },
+        y: 30,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 0.8,
+        ease: "power3.out",
+      });
+    </script>
+    <!-- Video Lightbox Modal -->
+    <div
+      id="video-modal"
+      class="fixed inset-0 z-[9999] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300"
+      onmouseenter="cancelClose()"
+      onmouseleave="scheduleClose()"
+      onclick="closeModal()"
+    >
+      <!-- Backdrop -->
+      <div class="absolute inset-0 bg-black/90 backdrop-blur-sm"></div>
+      <!-- Modal content -->
+      <div
+        class="relative z-10 w-full max-w-sm mx-auto transform transition-all duration-500 scale-95 opacity-0"
+        id="modal-container"
+        onclick="event.stopPropagation()"
+      >
+        <!-- Close button -->
+        <button
+          onclick="closeModal()"
+          class="absolute -top-12 right-0 text-white/70 hover:text-white transition-colors flex items-center gap-2 text-sm font-bold"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            class="w-5 h-5"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+          Cerrar
+        </button>
+        <!-- Title -->
+        <p
+          id="modal-title"
+          class="text-white/50 text-xs font-bold tracking-widest uppercase mb-3 text-center"
+        ></p>
+        <!-- Video container -->
+        <div
+          class="rounded-[2rem] overflow-hidden shadow-2xl border border-white/10"
+          style="aspect-ratio: 9/16"
+        >
+          <video
+            id="modal-video"
+            class="w-full h-full object-cover"
+            loop
+            muted
+            playsinline
+            controls
+          ></video>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Premium Preloader Logic
+      window.addEventListener("load", function () {
+        const tl = gsap.timeline();
+
+        // Initial state of preloader elements
+        gsap.set("#preloader-logo", { opacity: 0, scale: 0.8 });
+        gsap.set("#preloader-progress", { opacity: 0, y: 10 });
+
+        // 1. Fade in logo and progress bar
+        tl.to("#preloader-logo", {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power2.out",
+        })
+          .to(
+            "#preloader-progress",
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              ease: "power2.out",
+            },
+            "-=0.4",
+          )
+          // 2. Animate progress bar (simulated for smooth feel)
+          .to("#preloader-bar", {
+            width: "100%",
+            duration: 2,
+            ease: "power1.inOut",
+          })
+          // 3. Fade out preloader
+          .to("#preloader", {
+            opacity: 0,
+            duration: 0.8,
+            ease: "power2.inOut",
+            onComplete: () => {
+              document.getElementById("preloader").style.display = "none";
+              document.body.style.overflow = "auto";
+              ScrollTrigger.refresh();
+            },
+          })
+          // 4. Subtle entrance for the main content
+          .from(
+            "#root",
+            {
+              opacity: 0,
+              y: 20,
+              duration: 1,
+              ease: "power2.out",
+            },
+            "-=0.4",
+          );
+      });
+
+      let closeTimer = null;
+      let hoverTimer = null;
+
+      function startHoverTimer(src, title, cardId) {
+        cancelHoverTimer(cardId);
+        cancelClose();
+
+        // Start progress bar animation
+        const progress = document.getElementById("progress-" + cardId);
+        if (progress) {
+          progress.style.transition = "none";
+          progress.style.transform = "scaleX(0)";
+          setTimeout(() => {
+            progress.style.transition = "transform 1000ms linear";
+            progress.style.transform = "scaleX(1)";
+          }, 10);
+        }
+
+        // The video preview playback on hover is disabled as requested
+        // const vidPreview = document.getElementById('vid-' + cardId);
+        // if (vidPreview) vidPreview.play();
+
+        hoverTimer = setTimeout(() => {
+          openModal(src, title);
+          resetProgress(cardId);
+        }, 1000);
+      }
+
+      function cancelHoverTimer(cardId) {
+        if (hoverTimer) {
+          clearTimeout(hoverTimer);
+          hoverTimer = null;
+        }
+        resetProgress(cardId);
+
+        // Pause card video preview
+        const vidPreview = document.getElementById("vid-" + cardId);
+        if (vidPreview) {
+          vidPreview.pause();
+          vidPreview.currentTime = 0;
+        }
+
+        scheduleClose();
+      }
+
+      function resetProgress(cardId) {
+        const progress = document.getElementById("progress-" + cardId);
+        if (progress) {
+          progress.style.transition = "transform 200ms ease-out";
+          progress.style.transform = "scaleX(0)";
+        }
+      }
+
+      function openModal(src, title) {
+        cancelClose();
+        const modal = document.getElementById("video-modal");
+        const container = document.getElementById("modal-container");
+        const vid = document.getElementById("modal-video");
+        const ttl = document.getElementById("modal-title");
+
+        if (
+          vid.src !== location.origin + "/" + src &&
+          vid.getAttribute("src") !== src
+        ) {
+          vid.src = src;
+        }
+        ttl.textContent = title;
+
+        modal.classList.remove("opacity-0", "pointer-events-none");
+        modal.classList.add("opacity-100");
+
+        // Trigger container animation
+        setTimeout(() => {
+          container.classList.remove("scale-95", "opacity-0");
+          container.classList.add("scale-100", "opacity-100");
+          vid.play();
+        }, 50);
+
+        document.body.style.overflow = "hidden";
+      }
+
+      function scheduleClose() {
+        if (!closeTimer) {
+          closeTimer = setTimeout(() => closeModal(), 300);
+        }
+      }
+
+      function cancelClose() {
+        if (closeTimer) {
+          clearTimeout(closeTimer);
+          closeTimer = null;
+        }
+      }
+
+      function closeModal() {
+        cancelClose();
+        const modal = document.getElementById("video-modal");
+        const container = document.getElementById("modal-container");
+        const vid = document.getElementById("modal-video");
+
+        container.classList.remove("scale-100", "opacity-100");
+        container.classList.add("scale-95", "opacity-0");
+
+        setTimeout(() => {
+          modal.classList.add("opacity-0", "pointer-events-none");
+          modal.classList.remove("opacity-100");
+          vid.pause();
+          vid.src = "";
+          document.body.style.overflow = "";
+        }, 300);
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+
+      // Autoplay disabled as requested
+    </script>
+  </body>
+</html>

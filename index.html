@@ -1,0 +1,2385 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="./dl-icon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DUALINK | Socios de Ingeniería, CRM & Automatización</title>
+  <meta name="description"
+    content="DUALINK: Socios técnicos y arquitectos de software. Core de ingeniería en Apps Web, Sistemas CRM, n8n e IA, potenciados con diseño de experiencia y marca de alto impacto." />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dualink-web.vercel.app" />
+  <meta property="og:title" content="DUALINK | Socios de Ingeniería, CRM & Automatización" />
+  <meta property="og:description"
+    content="Core de ingeniería y automatización con IA, flujos n8n y sistemas CRM, complementados con diseño de experiencia y marca." />
+  <meta property="og:image" content="https://dualink-web.vercel.app/dl-icon.png" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DUALINK | Socios de Ingeniería, CRM & Automatización" />
+  <meta name="twitter:description" content="Core de ingeniería y automatización para empresas. Apps Web, CRM, n8n e IA con experiencia premium." />
+  <meta name="twitter:image" content="https://dualink-web.vercel.app/dl-icon.png" />
+  <!-- Google Fonts: Non-blocking load to eliminate render-blocking -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@700;800;900&amp;display=swap"
+    rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@700;800;900&amp;display=swap" rel="stylesheet" />
+  </noscript>
+  <!-- Preload critical CSS -->
+  <link rel="preload" href="./dist/output.css" as="style" />
+  <link href="./dist/output.css" rel="stylesheet" />
+  <!-- GSAP moved to end of body for correct load order -->
+  <!-- Fix: desactiva scroll restoration del navegador antes de render -->
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  </script>
+</head>
+
+<body class="bg-white overflow-x-hidden w-full max-w-full">
+  <!-- Premium Preloader -->
+  <div id="preloader">
+    <div class="loader-content">
+      <div id="preloader-logo" class="construction-text">
+        <div class="letter-container" data-letter="D">
+          <span class="letter dua">D</span>
+          <div class="segments dua">
+            <div class="seg seg-1"></div>
+            <div class="seg seg-2"></div>
+            <div class="seg seg-3"></div>
+            <div class="seg seg-4"></div>
+          </div>
+        </div>
+        <div class="letter-container" data-letter="U">
+          <span class="letter dua">U</span>
+          <div class="segments dua">
+            <div class="seg seg-1"></div>
+            <div class="seg seg-2"></div>
+            <div class="seg seg-3"></div>
+            <div class="seg seg-4"></div>
+          </div>
+        </div>
+        <div class="letter-container" data-letter="A">
+          <span class="letter dua">A</span>
+          <div class="segments dua">
+            <div class="seg seg-1"></div>
+            <div class="seg seg-2"></div>
+            <div class="seg seg-3"></div>
+            <div class="seg seg-4"></div>
+          </div>
+        </div>
+        <div class="letter-container" data-letter="L">
+          <span class="letter link">L</span>
+          <div class="segments link">
+            <div class="seg seg-1"></div>
+            <div class="seg seg-2"></div>
+            <div class="seg seg-3"></div>
+            <div class="seg seg-4"></div>
+          </div>
+        </div>
+        <div class="letter-container" data-letter="I">
+          <span class="letter link">I</span>
+          <div class="segments link">
+            <div class="seg seg-1"></div>
+            <div class="seg seg-2"></div>
+            <div class="seg seg-3"></div>
+            <div class="seg seg-4"></div>
+          </div>
+        </div>
+        <div class="letter-container" data-letter="N">
+          <span class="letter link">N</span>
+          <div class="segments link">
+            <div class="seg seg-1"></div>
+            <div class="seg seg-2"></div>
+            <div class="seg seg-3"></div>
+            <div class="seg seg-4"></div>
+          </div>
+        </div>
+        <div class="letter-container" data-letter="K">
+          <span class="letter link">K</span>
+          <div class="segments link">
+            <div class="seg seg-1"></div>
+            <div class="seg seg-2"></div>
+            <div class="seg seg-3"></div>
+            <div class="seg seg-4"></div>
+          </div>
+        </div>
+      </div>
+      <div class="loader-progress-container" id="preloader-progress">
+        <div class="loader-progress-bar" id="preloader-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="fixed top-[0.5cm] left-0 right-0 z-50 flex justify-center px-4 pointer-events-none transition-all duration-500 opacity-100"
+    id="navbar-container">
+    <nav id="main-nav"
+      class="bg-black/95 text-white border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)] backdrop-blur-2xl rounded-full px-4 md:px-8 py-3 flex items-center justify-between w-full max-w-5xl pointer-events-auto border transition-all duration-500 ring-1 ring-white/10">
+      <!-- Links Izquierda -->
+      <div class="hidden lg:flex items-center gap-8 text-sm font-semibold tracking-tight">
+        <a href="/index.html"
+          class="text-white hover:text-emerald-400 text-opacity-90 hover:text-opacity-100 transition-colors">Inicio</a>
+        <a href="/proyectos.html"
+          class="text-white hover:text-emerald-400 text-opacity-90 hover:text-opacity-100 transition-colors">Proyectos
+          hechos</a>
+        <a href="/index.html#nosotros"
+          class="text-white hover:text-emerald-400 text-opacity-90 hover:text-opacity-100 transition-colors">Nosotros</a>
+        <a href="/index.html#quehacemos"
+          class="text-white hover:text-emerald-400 text-opacity-90 hover:text-opacity-100 transition-colors">Qué
+          Hacemos</a>
+      </div>
+
+      <!-- Logo Central Textual -->
+      <div class="flex-shrink-0 flex items-center cursor-pointer mx-0">
+        <a href="/" class="flex flex-col items-center justify-center group">
+          <div
+            class="text-xl md:text-3xl font-black font-display tracking-tighter leading-none flex items-center transition-all duration-500"
+            id="nav-logo-text">
+            <span class="text-emerald-500">Dua</span>
+            <span class="text-lime-800">Link</span>
+          </div>
+          <span
+            class="text-[9px] md:text-[10px] font-bold tracking-[0.3em] text-emerald-500/80 mt-0.5 md:mt-1 uppercase transition-all duration-500"
+            id="nav-logo-sub">Studio</span>
+        </a>
+      </div>
+
+      <!-- Links Derecha & CTA -->
+      <div class="hidden lg:flex items-center gap-8 text-sm font-semibold tracking-tight">
+        <a href="#proceso"
+          class="text-white hover:text-emerald-400 text-opacity-90 hover:text-opacity-100 transition-colors">Proceso</a>
+        <a href="#pruebareal"
+          class="text-white hover:text-emerald-400 text-opacity-90 hover:text-opacity-100 transition-colors">Prueba
+          Real</a>
+        <div class="flex items-center pl-2">
+          <a href="https://wa.me/584243799214" target="_blank" rel="noopener noreferrer"
+            class="bg-violet-600 text-white px-7 py-2.5 rounded-full font-bold text-sm hover:bg-violet-500 hover:scale-105 transition-all shadow-[0_4px_20px_rgba(124,58,237,0.4)]">Contacto</a>
+        </div>
+      </div>
+
+      <!-- Botón Menú Móvil -->
+      <div class="lg:hidden flex items-center text-white">
+        <button id="mobile-menu-btn" class="hover:opacity-70 transition-opacity p-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-menu w-6 h-6">
+            <path d="M4 5h16"></path>
+            <path d="M4 12h16"></path>
+            <path d="M4 19h16"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Container -->
+    <div id="mobile-menu"
+      class="hidden absolute top-full left-0 right-0 mt-4 mx-4 bg-black/90 backdrop-blur-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-3xl p-6 flex-col gap-6 z-50 origin-top pointer-events-auto">
+      <a href="/index.html"
+        class="text-xl font-bold text-white hover:text-emerald-400 transition-colors mobile-nav-link">Inicio</a>
+      <a href="/proyectos.html"
+        class="text-xl font-bold text-white hover:text-emerald-400 transition-colors mobile-nav-link">Proyectos
+        hechos</a>
+      <a href="/index.html#nosotros"
+        class="text-xl font-bold text-white hover:text-emerald-400 transition-colors mobile-nav-link">Nosotros</a>
+      <a href="/index.html#quehacemos"
+        class="text-xl font-bold text-white hover:text-emerald-400 transition-colors mobile-nav-link">Qué Hacemos</a>
+      <a href="#proceso"
+        class="text-xl font-bold text-white hover:text-emerald-400 transition-colors mobile-nav-link">Proceso</a>
+      <a href="#pruebareal"
+        class="text-xl font-bold text-white hover:text-emerald-400 transition-colors mobile-nav-link">Prueba Real</a>
+      <a href="https://wa.me/584243799214"
+        class="bg-violet-600 hover:bg-violet-500 transition-colors text-white text-center px-6 py-4 rounded-full font-bold text-lg mt-4 shadow-[0_4px_20px_rgba(124,58,237,0.4)] mobile-nav-link">Contacto</a>
+    </div>
+  </div>
+
+  <div id="root" class="overflow-x-hidden w-full max-w-full">
+    <div
+      class="relative min-h-screen bg-white font-sans selection:bg-brand-purple/20 selection:text-brand-purple overflow-x-hidden w-full max-w-full">
+      <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <div
+          class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-brand-blue/10 blur-[120px] rounded-full animate-float">
+        </div>
+        <div
+          class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-brand-purple/10 blur-[150px] rounded-full animate-float-delayed">
+        </div>
+        <div
+          class="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-brand-blue/5 blur-[100px] rounded-full animate-float">
+        </div>
+      </div>
+      <div style="
+            width: 100vw;
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+          ">
+        <main class="flex flex-col bg-white overflow-x-hidden">
+          <section id="inicio"
+            class="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden px-4">
+
+            <!-- Fondo: grid sutil -->
+            <div class="absolute inset-0 pointer-events-none" style="background-image: linear-gradient(rgba(148,163,184,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.07) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+            <!-- Orbes de gradiente animados -->
+            <div class="absolute top-[-15%] left-[-10%] w-[55%] h-[55%] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(16,185,129,0.13) 0%, transparent 70%); animation: float 8s ease-in-out infinite;"></div>
+            <div class="absolute bottom-[-10%] right-[-5%] w-[50%] h-[50%] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(139,92,246,0.11) 0%, transparent 70%); animation: float-delayed 10s ease-in-out infinite;"></div>
+            <div class="absolute top-[40%] right-[20%] w-[20%] h-[20%] rounded-full pointer-events-none" style="background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);"></div>
+
+            <!-- Contenido Central -->
+            <div class="text-center relative z-30 max-w-5xl mx-auto w-full">
+
+              <!-- Badge superior -->
+              <div id="hero-badge" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-slate-50 border border-slate-200 mb-8 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
+                <span class="font-mono text-sm tracking-tight text-slate-500"><span class="text-brand-purple font-bold">Digital</span> &middot; Innovation &middot; Partners</span>
+                <span class="font-bold text-slate-300 hidden sm:inline">&middot;</span>
+                <span class="text-slate-600 font-bold text-[10px] uppercase tracking-widest hidden sm:inline">DUALINK</span>
+              </div>
+
+              <!-- T&iacute;tulo Principal - H1 &uacute;nico SEO -->
+              <h1 class="font-display font-black tracking-tight text-slate-900 mb-7" style="line-height: 1.08;">
+                <div class="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] flex flex-wrap justify-center items-center gap-x-[0.15em] mb-3">
+                  <span class="inline-block">Desarrollo</span>
+                  <span class="inline-block text-transparent bg-clip-text bg-brand-gradient">Web</span>
+                  <span class="inline-block text-slate-300">&amp;</span>
+                </div>
+                <div class="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] flex flex-wrap justify-center items-center gap-x-[0.15em]">
+                  <span class="inline-block text-transparent bg-clip-text bg-brand-gradient">Automatizaci&oacute;n</span>
+                  <span class="inline-block text-slate-900">Real</span>
+                </div>
+              </h1>
+
+              <!-- Subt&iacute;tulo -->
+              <p class="text-center text-lg md:text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed mb-4">
+                Transformamos ideas en productos digitales que dominan el mercado.
+                <br class="hidden md:block" />
+                <span class="text-slate-400">Sistemas CRM, flujos n8n e Inteligencia Artificial.</span>
+              </p>
+
+              <!-- Chips de tecnolog&iacute;as -->
+              <div id="hero-chips" class="flex flex-wrap justify-center gap-2 mb-10 mt-2">
+                <span class="px-3 py-1 rounded-full text-xs font-bold border border-emerald-200 bg-emerald-50 text-emerald-700">Next.js</span>
+                <span class="px-3 py-1 rounded-full text-xs font-bold border border-violet-200 bg-violet-50 text-violet-700">n8n Automation</span>
+                <span class="px-3 py-1 rounded-full text-xs font-bold border border-blue-200 bg-blue-50 text-blue-700">Supabase</span>
+                <span class="px-3 py-1 rounded-full text-xs font-bold border border-slate-200 bg-slate-50 text-slate-600">React</span>
+                <span class="px-3 py-1 rounded-full text-xs font-bold border border-emerald-200 bg-emerald-50 text-emerald-700">IA Generativa</span>
+                <span class="px-3 py-1 rounded-full text-xs font-bold border border-violet-200 bg-violet-50 text-violet-700">CRM a medida</span>
+              </div>
+
+              <!-- CTAs -->
+              <div id="hero-cta" class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                <a href="https://wa.me/584243799214?text=Hola%20DuaLink!%20Quiero%20agendar%20una%20llamada%20de%20diagn%C3%B3stico%20t%C3%A9cnico%20de%2015%20min." target="_blank" rel="noopener noreferrer"
+                  class="bg-brand-gradient text-white px-8 py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:scale-105 hover:shadow-[0_8px_30px_rgba(16,185,129,0.35)] transition-all text-base whitespace-nowrap shadow-lg">
+                  Agenda llamada de diagn&oacute;stico (15 min)
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 7h10v10"></path><path d="M7 17 17 7"></path>
+                  </svg>
+                </a>
+                <a href="#quehacemos"
+                  class="bg-white text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-slate-50 transition-colors text-base border border-slate-200 whitespace-nowrap shadow-sm">
+                  Audita tus procesos
+                </a>
+              </div>
+              <p class="text-xs text-slate-400 mt-4 text-center font-medium">
+                Sin costo ni compromiso &middot; Evaluaci&oacute;n t&eacute;cnica directa con arquitectos de software
+              </p>
+            </div>
+
+          </section>
+
+          <div class="w-full h-16 bg-gradient-to-b from-white to-zinc-800 relative z-30 pointer-events-none"></div>
+          <section id="nosotros"
+            class="relative z-40 bg-zinc-900 text-white pt-12 pb-32 px-4 md:px-8 overflow-hidden w-full">
+            <div
+              class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none overflow-hidden opacity-20">
+              <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand-blue/30 blur-[100px] rounded-full">
+              </div>
+              <div
+                class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-brand-purple/30 blur-[100px] rounded-full">
+              </div>
+            </div>
+            <div class="max-w-7xl mx-auto relative z-10">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <div class="relative h-[450px] md:h-[600px] w-full">
+                  <div
+                    class="absolute inset-0 w-full h-full p-2 bg-slate-900/50 backdrop-blur-sm border border-white/10 rounded-[2.5rem] shadow-2xl z-10"
+                    style="transform: scale(0.9) rotate(-8deg)">
+                    <picture>
+                      <source srcset="./webp/dualink-about-illustration.webp" type="image/webp" />
+                      <img alt="Equipo DuaLink colaborando en proyectos digitales"
+                        class="w-full h-full object-cover object-[50%_45%] rounded-[2rem]"
+                        src="./brand/dualink-about-illustration.png"
+                        width="600" height="750"
+                        loading="lazy"
+                        decoding="async" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="flex flex-col">
+                  <div>
+                    <span
+                      class="text-brand-purple font-bold tracking-[0.3em] text-xs md:text-sm uppercase mb-6 block">Nuestra
+                      Historia</span>
+                    <h2
+                      class="text-4xl sm:text-5xl md:text-7xl title-brand-tight text-white mb-10 leading-tight break-words">
+                      Agencia experta en <br /><span
+                        class="text-transparent bg-clip-text bg-brand-gradient break-words">Desarrollo Web y CRM</span>
+                    </h2>
+                  </div>
+                  <div class="space-y-8 text-slate-400 text-lg md:text-xl font-medium leading-relaxed">
+                    <p>
+                      Somos <strong class="text-white">Jorge</strong> y
+                      <strong class="text-white">Mariangel</strong>. DUALINK
+                      nació de la necesidad de hacer las cosas distinto.
+                      Unimos nuestra visión técnica y creativa para crear
+                      arquitecturas escalables (Next.js, Supabase) y automatizar
+                      procesos complejos con n8n e Inteligencia Artificial.
+                    </p>
+                    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+                      <!-- Stat 1: Money -->
+                      <div
+                        class="stat-card p-6 rounded-3xl bg-black border border-white/5 hover:border-brand-blue/30 transition-colors group">
+                        <div class="flex items-center gap-4 mb-3">
+                          <div
+                            class="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                              fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                              stroke-linejoin="round">
+                              <line x1="12" y1="1" x2="12" y2="23"></line>
+                              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                          </div>
+                          <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Resultados</span>
+                        </div>
+                        <h4 class="text-4xl font-black text-white mb-1">+$<span class="stat-counter"
+                            data-target="10000">0</span></h4>
+                        <p class="text-sm text-slate-400 font-medium">Generados en Proyectos</p>
+                      </div>
+
+                      <!-- Stat 2: Projects -->
+                      <div
+                        class="stat-card p-6 rounded-3xl bg-black border border-white/5 hover:border-brand-purple/30 transition-colors group">
+                        <div class="flex items-center gap-4 mb-3">
+                          <div
+                            class="w-10 h-10 rounded-xl bg-brand-purple/10 flex items-center justify-center text-brand-purple group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                              fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                              stroke-linejoin="round">
+                              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                              <line x1="3" y1="9" x2="21" y2="9"></line>
+                              <line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg>
+                          </div>
+                          <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Alcance</span>
+                        </div>
+                        <h4 class="text-4xl font-black text-white mb-1"><span class="stat-counter"
+                            data-target="25">0</span>+</h4>
+                        <p class="text-sm text-slate-400 font-medium">Proyectos Lanzados</p>
+                      </div>
+
+                      <!-- Stat 3: Experience -->
+                      <div
+                        class="stat-card p-6 rounded-3xl bg-black border border-white/5 hover:border-brand-blue/30 transition-colors group">
+                        <div class="flex items-center gap-4 mb-3">
+                          <div
+                            class="w-10 h-10 rounded-xl bg-brand-blue/10 flex items-center justify-center text-brand-blue group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                              fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                              stroke-linejoin="round">
+                              <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                              </path>
+                            </svg>
+                          </div>
+                          <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Trayectoria</span>
+                        </div>
+                        <h4 class="text-4xl font-black text-white mb-1"><span class="stat-counter"
+                            data-target="2">0</span> Años</h4>
+                        <p class="text-sm text-slate-400 font-medium">Creando Juntos</p>
+                      </div>
+
+                      <!-- Stat 4: Happiness -->
+                      <div
+                        class="stat-card p-6 rounded-3xl bg-black border border-white/5 hover:border-brand-purple/30 transition-colors group">
+                        <div class="flex items-center gap-4 mb-3">
+                          <div
+                            class="w-10 h-10 rounded-xl bg-brand-purple/10 flex items-center justify-center text-brand-purple group-hover:scale-110 transition-transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                              fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                              stroke-linejoin="round">
+                              <path
+                                d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                              </path>
+                            </svg>
+                          </div>
+                          <span class="text-xs font-bold uppercase tracking-widest text-slate-500">Calidad</span>
+                        </div>
+                        <h4 class="text-4xl font-black text-white mb-1"><span class="stat-counter"
+                            data-target="100">0</span>%</h4>
+                        <p class="text-sm text-slate-400 font-medium">Satisfacción Garantizada</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mt-12 p-8 rounded-3xl bg-black border border-white/10 shadow-2xl backdrop-blur-sm">
+                    <p
+                      class="text-xl md:text-2xl font-bold text-white italic relative z-10 leading-relaxed text-balance">
+                      "No trabajamos para cientos de marcas.<br />Nos aliamos
+                      con misiones que nos apasionan y estamos dispuestos a
+                      escalar."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="quehacemos" class="bg-zinc-900 text-white py-24 px-4 md:px-8 overflow-hidden w-full">
+            <div class="max-w-7xl mx-auto">
+              <div class="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center mb-24">
+                <div class="lg:w-[55%]">
+                  <div class="overflow-hidden pb-4">
+                    <h2 class="text-4xl md:text-6xl title-brand-tight text-white leading-[1.1]">
+                      Sistemas a medida.
+                    </h2>
+                  </div>
+                  <div class="overflow-hidden mb-12 pb-4">
+                    <h2 class="text-4xl md:text-6xl title-brand-tight leading-[1.1]">
+                      <span
+                        class="text-transparent bg-clip-text bg-brand-gradient bg-[length:200%_auto] bg-left">Automatización
+                        sin límites.</span>
+                    </h2>
+                  </div>
+                  <p class="text-slate-400 text-lg md:text-xl font-medium leading-relaxed max-w-xl">
+                    Tus arquitectos de software y socios t&eacute;cnicos. Desarrollamos infraestructura digital de alta ingenier&iacute;a y automatizaci&oacute;n con IA, respaldados por una capa de experiencia y marca que convierte.
+                  </p>
+                </div>
+                <div class="lg:w-[45%] relative group ml-auto perspective-1000">
+                  <div
+                    class="absolute inset-x-[-10%] inset-y-[-10%] bg-brand-gradient blur-[100px] pointer-events-none opacity-50">
+                  </div>
+                  <div
+                    class="relative z-10 w-full aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl group/img bg-white">
+                    <div class="w-full h-full">
+                      <picture>
+                        <source srcset="./webp/dualink-quehacemos-illustration.webp" type="image/webp" />
+                        <img alt="Workspace de desarrollo web, automatización n8n y CRM en DuaLink"
+                          class="w-full h-full object-cover object-center grayscale-[30%] group-hover/img:grayscale-0 scale-[1.12] group-hover/img:scale-[1.25] transition-all duration-700 ease-out"
+                          src="./brand/dualink-quehacemos-illustration.png"
+                          width="500" height="625"
+                          loading="lazy"
+                          decoding="async" />
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Estructura en 2 Pilares: Core de Ingeniería + Experiencia & Marca -->
+              <div class="space-y-16">
+                <!-- PILAR 1: Core de Ingeniería & Automatización -->
+                <div class="rounded-[2.5rem] bg-gradient-to-b from-slate-900/90 to-black/90 border border-brand-blue/30 p-8 md:p-12 shadow-2xl relative overflow-hidden">
+                  <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-blue/10 blur-[100px] pointer-events-none"></div>
+
+                  <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 pb-8 border-b border-white/10 relative z-10">
+                    <div>
+                      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-blue/10 border border-brand-blue/30 text-brand-blue mb-4 font-mono">
+                        <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span>
+                        Pilar 1 &middot; Alta Ingenier&iacute;a &amp; Software
+                      </div>
+                      <h3 class="text-3xl md:text-5xl font-black text-white title-brand-tight">
+                        Core de Ingenier&iacute;a &amp; Automatizaci&oacute;n
+                      </h3>
+                      <p class="text-slate-400 text-base md:text-lg mt-3 max-w-2xl font-medium leading-relaxed">
+                        Construimos la columna vertebral tecnol&oacute;gica de tu negocio: arquitecturas escalables, integraciones complejas y flujos automatizados con IA para operar con m&aacute;xima precisi&oacute;n y rentabilidad.
+                      </p>
+                    </div>
+                    <div class="shrink-0">
+                      <a href="https://wa.me/584243799214?text=Hola%20DuaLink!%20Quiero%20auditar%20mis%20procesos%20y%20descubrir%20qu%C3%A9%20automatizar."
+                        target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-sm font-bold text-white bg-brand-gradient hover:opacity-95 px-6 py-3 rounded-full transition-all shadow-lg hover:scale-105 whitespace-nowrap">
+                        Audita tus procesos
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Grid de Soluciones de Ingeniería -->
+                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+                    <!-- Apps Web -->
+                    <div class="p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-brand-blue/40 transition-all duration-300 group flex flex-col justify-between">
+                      <div>
+                        <div class="p-3 w-fit rounded-xl bg-brand-blue/20 border border-brand-blue/40 text-brand-blue mb-4 group-hover:scale-110 transition-transform">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                          </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-white group-hover:text-brand-blue transition-colors mb-2">
+                          Apps Web
+                        </h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                          Desarrollo a medida de aplicaciones web robustas, r&aacute;pidas y escalables con Next.js, React y Supabase.
+                        </p>
+                      </div>
+                      <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                        <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Next.js</span>
+                        <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Supabase</span>
+                      </div>
+                    </div>
+
+                    <!-- Sistemas CRM -->
+                    <div class="p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-brand-blue/40 transition-all duration-300 group flex flex-col justify-between">
+                      <div>
+                        <div class="p-3 w-fit rounded-xl bg-brand-blue/20 border border-brand-blue/40 text-brand-blue mb-4 group-hover:scale-110 transition-transform">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                          </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-white group-hover:text-brand-blue transition-colors mb-2">
+                          Sistemas CRM
+                        </h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                          Centraliza clientes, automatiza pipelines comerciales y unifica el seguimiento de ventas de principio a fin.
+                        </p>
+                      </div>
+                      <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                        <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Pipelines</span>
+                        <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Lead Tracking</span>
+                      </div>
+                    </div>
+
+                    <!-- Workflows n8n -->
+                    <div class="p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-brand-blue/40 transition-all duration-300 group flex flex-col justify-between">
+                      <div>
+                        <div class="p-3 w-fit rounded-xl bg-brand-blue/20 border border-brand-blue/40 text-brand-blue mb-4 group-hover:scale-110 transition-transform">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="8" height="8" rx="2"></rect>
+                            <rect x="14" y="2" width="8" height="8" rx="2"></rect>
+                            <rect x="14" y="14" width="8" height="8" rx="2"></rect>
+                            <rect x="2" y="14" width="8" height="8" rx="2"></rect>
+                            <path d="M6 10v4"></path>
+                            <path d="M18 10v4"></path>
+                            <path d="M10 6h4"></path>
+                          </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-white group-hover:text-brand-blue transition-colors mb-2">
+                          Workflows n8n
+                        </h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                          Automatizaci&oacute;n integral de procesos con n8n. Conectamos tus herramientas para erradicar tareas repetitivas.
+                        </p>
+                      </div>
+                      <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                        <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">n8n</span>
+                        <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Webhooks</span>
+                      </div>
+                    </div>
+
+                    <!-- Soluciones con IA -->
+                    <div class="p-6 rounded-2xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/10 hover:border-brand-blue/40 transition-all duration-300 group flex flex-col justify-between">
+                      <div>
+                        <div class="p-3 w-fit rounded-xl bg-brand-blue/20 border border-brand-blue/40 text-brand-blue mb-4 group-hover:scale-110 transition-transform">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                          </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-white group-hover:text-brand-blue transition-colors mb-2">
+                          Soluciones con IA
+                        </h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                          Inteligencia Artificial aplicada: chatbots avanzados, automatizaci&oacute;n de reportes y agentes operativos aut&oacute;nomos.
+                        </p>
+                      </div>
+                      <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                        <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Chatbots</span>
+                        <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Agentes IA</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- PILAR 2: Experiencia & Marca (Design & Media) -->
+                <div class="rounded-[2.5rem] bg-gradient-to-b from-slate-900/60 to-black/60 border border-brand-purple/30 p-8 md:p-12 shadow-xl relative overflow-hidden">
+                  <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-purple/10 blur-[100px] pointer-events-none"></div>
+
+                  <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 pb-8 border-b border-white/10 relative z-10">
+                    <div>
+                      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-brand-purple/10 border border-brand-purple/30 text-brand-purple mb-4 font-mono">
+                        <span class="w-2 h-2 rounded-full bg-brand-purple"></span>
+                        Pilar 2 &middot; Complemento de Experiencia &amp; Marca
+                      </div>
+                      <h3 class="text-3xl md:text-5xl font-black text-white title-brand-tight">
+                        Experiencia &amp; Marca <span class="text-slate-400 text-2xl md:text-4xl font-normal">(Design &amp; Media)</span>
+                      </h3>
+                      <p class="text-slate-400 text-base md:text-lg mt-3 max-w-2xl font-medium leading-relaxed">
+                        El complemento creativo y comunicacional que garantiza que tu software no solo funcione con precisi&oacute;n, sino que comunique valor, cautive y convierta.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Grid de Servicios Creativos y de Experiencia -->
+                  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+                    <!-- UI/UX Premium & Portafolios -->
+                    <div class="p-6 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 hover:border-brand-purple/40 transition-all duration-300 group flex flex-col justify-between">
+                      <div>
+                        <div class="p-3 w-fit rounded-xl bg-brand-purple/20 border border-brand-purple/40 text-brand-purple mb-4 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(17,94,89,0.3)]">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                          </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-white group-hover:text-brand-purple transition-colors mb-2">
+                          UI/UX Premium &amp; Portafolios
+                        </h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                          Dise&ntilde;o de interfaces intuitivas y vitrinas digitales de alto est&aacute;ndar est&eacute;tico que elevan la percepci&oacute;n y usabilidad de tu producto.
+                        </p>
+                      </div>
+                      <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                        <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Apple Style</span>
+                        <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Vitrinas Digitales</span>
+                      </div>
+                    </div>
+
+                    <!-- Identidad Visual -->
+                    <div class="p-6 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 hover:border-brand-purple/40 transition-all duration-300 group flex flex-col justify-between">
+                      <div>
+                        <div class="p-3 w-fit rounded-xl bg-brand-purple/20 border border-brand-purple/40 text-brand-purple mb-4 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(17,94,89,0.3)]">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                          </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-white group-hover:text-brand-purple transition-colors mb-2">
+                          Identidad Visual
+                        </h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                          Construcci&oacute;n integral de marca: sistemas gr&aacute;ficos, logotipos, paletas crom&aacute;ticas y manuales para posicionar tu empresa como referente.
+                        </p>
+                      </div>
+                      <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                        <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Brand Book</span>
+                        <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Design System</span>
+                      </div>
+                    </div>
+
+                    <!-- Contenido de Impacto & Edición de Video -->
+                    <div class="p-6 rounded-2xl bg-white/[0.02] hover:bg-white/[0.05] border border-white/10 hover:border-brand-purple/40 transition-all duration-300 group flex flex-col justify-between">
+                      <div>
+                        <div class="p-3 w-fit rounded-xl bg-brand-purple/20 border border-brand-purple/40 text-brand-purple mb-4 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(17,94,89,0.3)]">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                          </svg>
+                        </div>
+                        <h4 class="text-xl font-bold text-white group-hover:text-brand-purple transition-colors mb-2">
+                          Contenido de Impacto
+                        </h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                          Edici&oacute;n de video din&aacute;mica y postproducci&oacute;n audiovisual pensada para retener atenci&oacute;n y explicar productos tecnol&oacute;gicos.
+                        </p>
+                      </div>
+                      <div class="mt-4 pt-4 border-t border-white/5 flex flex-wrap gap-1.5">
+                        <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Video Motion</span>
+                        <span class="text-[11px] font-mono text-slate-400 bg-white/5 px-2 py-0.5 rounded">Social Media</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Banner CTA específico / complementario dentro de Quehacemos -->
+                <div class="rounded-3xl bg-gradient-to-r from-slate-900 via-zinc-900 to-black border border-white/10 p-8 md:p-10 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
+                  <div class="absolute -left-10 top-0 w-64 h-64 bg-brand-blue/10 blur-[80px] pointer-events-none"></div>
+                  <div class="text-left relative z-10 max-w-xl">
+                    <span class="text-xs font-mono font-bold uppercase tracking-widest text-brand-blue block mb-2">
+                      Diagn&oacute;stico T&eacute;cnico Sin Costo
+                    </span>
+                    <h4 class="text-2xl md:text-3xl font-black text-white">
+                      &iquest;No sabes por d&oacute;nde empezar a optimizar?
+                    </h4>
+                    <p class="text-slate-400 text-sm md:text-base mt-2 leading-relaxed">
+                      Audita tus procesos y descubre qu&eacute; automatizar. En 15 minutos identificamos los cuellos de botella de tu operaci&oacute;n y las soluciones t&eacute;cnicas de mayor retorno.
+                    </p>
+                  </div>
+                  <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto shrink-0 relative z-10">
+                    <a href="https://wa.me/584243799214?text=Hola%20DuaLink!%20Quiero%20agendar%20una%20llamada%20de%20diagn%C3%B3stico%20t%C3%A9cnico%20de%2015%20min."
+                      target="_blank" rel="noopener noreferrer"
+                      class="bg-brand-gradient text-white px-6 py-3.5 rounded-full font-bold text-sm text-center hover:scale-105 transition-all shadow-lg whitespace-nowrap flex items-center justify-center gap-2">
+                      Agenda llamada de diagn&oacute;stico (15 min)
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 7h10v10"></path><path d="M7 17 17 7"></path>
+                      </svg>
+                    </a>
+                    <a href="#contacto"
+                      class="bg-white/5 hover:bg-white/10 text-white px-6 py-3.5 rounded-full font-bold text-sm text-center border border-white/10 transition-all whitespace-nowrap">
+                      Auditar procesos
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Proceso + Philosophy + Testimonials (unified block) -->
+          <section id="proceso" class="bg-zinc-900 text-white py-32 px-4 md:px-8 overflow-hidden w-full relative z-10">
+            <!-- Background decorative elements -->
+
+            <div class="max-w-7xl mx-auto relative z-10">
+              <div class="text-center mb-24">
+                <h2 class="text-4xl sm:text-5xl md:text-6xl title-brand-tight text-white mb-6">
+                  Proceso de Desarrollo y
+                  <span class="text-brand-purple">Automatización.</span>
+                </h2>
+                <p class="text-slate-500 text-xs sm:text-sm font-bold tracking-[0.25em] uppercase">
+                  Nuestro Proceso Creativo
+                </p>
+              </div>
+
+              <div class="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start w-full">
+                <!-- Left Column: Steps -->
+                <div class="lg:w-1/2 flex flex-col relative w-full">
+                  <!-- Vertical Line -->
+                  <div class="absolute left-[24px] md:left-[28px] top-8 bottom-8 w-px bg-slate-800 -z-10"></div>
+
+                  <div class="flex flex-col gap-14">
+                    <!-- Step 1 -->
+                    <div class="flex items-start gap-6 group">
+                      <div
+                        class="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-full bg-zinc-950 border border-slate-800 flex items-center justify-center text-brand-purple font-black text-lg md:text-xl shadow-[0_0_20px_rgba(17,94,89,0.15)] transition-all duration-300 group-hover:scale-110 group-hover:bg-brand-purple/10 group-hover:border-brand-purple/30 group-hover:shadow-[0_0_30px_rgba(17,94,89,0.3)]">
+                        1
+                      </div>
+                      <div class="pt-2 md:pt-3 flex-1">
+                        <h3
+                          class="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-brand-purple transition-colors duration-300">
+                          Diagn&oacute;stico t&eacute;cnico &amp; auditor&iacute;a.
+                        </h3>
+                        <p class="text-slate-400 text-sm md:text-base font-medium leading-relaxed">
+                          Analizamos tus procesos actuales, cuellos de botella y objetivos para descubrir con exactitud qu&eacute; sistematizar y automatizar.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex items-start gap-6 group">
+                      <div
+                        class="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-full bg-zinc-950 border border-slate-800 flex items-center justify-center text-brand-purple font-black text-lg md:text-xl shadow-[0_0_20px_rgba(17,94,89,0.15)] transition-all duration-300 group-hover:scale-110 group-hover:bg-brand-purple/10 group-hover:border-brand-purple/30 group-hover:shadow-[0_0_30px_rgba(17,94,89,0.3)]">
+                        2
+                      </div>
+                      <div class="pt-2 md:pt-3 flex-1">
+                        <h3
+                          class="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-brand-purple transition-colors duration-300">
+                          La aterrizamos.
+                        </h3>
+                        <p class="text-slate-400 text-sm md:text-base font-medium leading-relaxed">
+                          Definimos la viabilidad técnica y el alcance real
+                          del proyecto.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex items-start gap-6 group">
+                      <div
+                        class="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-full bg-zinc-950 border border-slate-800 flex items-center justify-center text-brand-purple font-black text-lg md:text-xl shadow-[0_0_20px_rgba(17,94,89,0.15)] transition-all duration-300 group-hover:scale-110 group-hover:bg-brand-purple/10 group-hover:border-brand-purple/30 group-hover:shadow-[0_0_30px_rgba(17,94,89,0.3)]">
+                        3
+                      </div>
+                      <div class="pt-2 md:pt-3 flex-1">
+                        <h3
+                          class="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-brand-purple transition-colors duration-300">
+                          La estructuramos.
+                        </h3>
+                        <p class="text-slate-400 text-sm md:text-base font-medium leading-relaxed">
+                          Creamos la arquitectura lógica para que sea
+                          escalable.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex items-start gap-6 group">
+                      <div
+                        class="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-full bg-zinc-950 border border-slate-800 flex items-center justify-center text-brand-purple font-black text-lg md:text-xl shadow-[0_0_20px_rgba(17,94,89,0.15)] transition-all duration-300 group-hover:scale-110 group-hover:bg-brand-purple/10 group-hover:border-brand-purple/30 group-hover:shadow-[0_0_30px_rgba(17,94,89,0.3)]">
+                        4
+                      </div>
+                      <div class="pt-2 md:pt-3 flex-1">
+                        <h3
+                          class="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-brand-purple transition-colors duration-300">
+                          La diseñamos.
+                        </h3>
+                        <p class="text-slate-400 text-sm md:text-base font-medium leading-relaxed">
+                          Damos vida a la interfaz con un enfoque Premium
+                          Apple-style.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="flex items-start gap-6 group">
+                      <div
+                        class="w-12 h-12 md:w-14 md:h-14 shrink-0 rounded-full bg-zinc-950 border border-slate-800 flex items-center justify-center text-brand-purple font-black text-lg md:text-xl shadow-[0_0_20px_rgba(17,94,89,0.15)] transition-all duration-300 group-hover:scale-110 group-hover:bg-brand-purple/10 group-hover:border-brand-purple/30 group-hover:shadow-[0_0_30px_rgba(17,94,89,0.3)]">
+                        5
+                      </div>
+                      <div class="pt-2 md:pt-3 flex-1">
+                        <h3
+                          class="text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-brand-purple transition-colors duration-300">
+                          La desarrollamos.
+                        </h3>
+                        <p class="text-slate-400 text-sm md:text-base font-medium leading-relaxed">
+                          Escribimos código limpio, rápido y listo para
+                          producción.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right Column: Info Card -->
+                <div class="lg:w-1/2 w-full mt-4 lg:mt-0">
+                  <div
+                    class="p-8 md:p-12 lg:p-14 rounded-[2.5rem] bg-zinc-900/50 border border-white/5 shadow-2xl sticky top-32">
+                    <ul class="space-y-8 mb-16">
+                      <li class="flex items-center gap-4 text-slate-400 text-lg md:text-xl italic font-medium">
+                        <span
+                          class="w-2 h-2 rounded-full bg-brand-purple shrink-0 shadow-[0_0_10px_rgba(17,94,89,0.8)]"></span>
+                        No trabajamos con paquetes rígidos.
+                      </li>
+                      <li class="flex items-center gap-4 text-slate-400 text-lg md:text-xl italic font-medium">
+                        <span
+                          class="w-2 h-2 rounded-full bg-brand-purple shrink-0 shadow-[0_0_10px_rgba(17,94,89,0.8)]"></span>
+                        No copiamos plantillas genéricas.
+                      </li>
+                      <li class="flex items-center gap-4 text-slate-400 text-lg md:text-xl italic font-medium">
+                        <span
+                          class="w-2 h-2 rounded-full bg-brand-purple shrink-0 shadow-[0_0_10px_rgba(17,94,89,0.8)]"></span>
+                        No vendemos promesas vacías.
+                      </li>
+                    </ul>
+
+                    <div class="w-full h-px bg-slate-800/80 mb-12"></div>
+
+                    <div>
+                      <h3
+                        class="text-4xl md:text-5xl lg:text-5xl font-display font-black text-white leading-[1.1] mb-4">
+                        Construimos <br /><span class="text-brand-purple">contigo.</span>
+                      </h3>
+                      <p class="text-slate-500 text-base md:text-lg font-medium leading-relaxed">
+                        Somos tus socios técnicos en cada línea de código.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Philosophy Section -->
+          <section
+            class="px-4 md:px-8 bg-zinc-900 text-white overflow-hidden w-full relative z-10 flex flex-col items-center justify-center text-center py-24">
+            <div class="relative z-10 max-w-4xl w-full mx-auto px-4">
+              <!-- Card -->
+              <div
+                class="relative bg-[#0d1117] border border-white/10 rounded-[2rem] px-10 md:px-16 py-14 md:py-16 overflow-hidden shadow-2xl text-center">
+                <!-- Decorative large quote mark top-right -->
+                <span class="absolute top-6 right-8 text-white/10 font-serif select-none pointer-events-none"
+                  style="font-size: 7rem; line-height: 1; font-weight: 900">"</span>
+
+                <h2
+                  class="text-white text-2xl md:text-3xl lg:text-4xl font-black font-display tracking-widest mb-10 uppercase">
+                  Software que Resuelve Problemas
+                </h2>
+
+                <p class="text-white/90 text-2xl md:text-3xl lg:text-4xl font-medium leading-snug mb-10 tracking-tight">
+                  "Si el código no resuelve un problema de
+                  <em class="not-italic font-bold italic">negocio</em>, es
+                  solo un pasatiempo caro."
+                </p>
+
+                <div class="flex flex-col items-center gap-3">
+                  <div class="w-10 h-[3px] bg-gradient-to-r from-blue-600 to-violet-500 rounded-full"></div>
+                  <span class="text-slate-400 text-xs font-bold tracking-[0.3em] uppercase">DuaLink Studio</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Testimonials Section -->
+          <section id="pruebareal"
+            class="bg-zinc-900 text-white relative z-10 w-full px-4 md:px-8 pt-16 pb-40 rounded-b-[3rem] shadow-[0_20px_40px_rgba(0,0,0,0.2)]">
+            <div class="max-w-6xl mx-auto relative z-10">
+              <div class="text-center mb-16 relative">
+                <span
+                  class="text-blue-500 text-sm md:text-base font-bold tracking-[0.2em] uppercase mb-4 block">Nuestros Casos de Éxito</span>
+                <h2
+                  class="text-white text-5xl md:text-6xl lg:text-7xl font-black font-display tracking-tighter leading-none relative z-10">
+                  Empresas que escalan<br />
+                  <span class="text-transparent bg-clip-text bg-brand-gradient">con DuaLink</span>
+                </h2>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Review 1 -->
+                <div
+                  class="bg-zinc-950/60 border border-white/5 rounded-[2rem] p-10 text-left shadow-2xl relative overflow-hidden group hover:border-brand-purple/50 transition-colors duration-500">
+                  <div class="flex gap-1.5 mb-8">
+                    <!-- 5 Stars SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                      fill="currentColor" class="text-brand-purple">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                      fill="currentColor" class="text-brand-purple">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                      fill="currentColor" class="text-brand-purple">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                      fill="currentColor" class="text-brand-purple">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                      fill="currentColor" class="text-brand-purple">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                  </div>
+                  <p class="text-xl md:text-2xl font-medium text-slate-300 italic mb-10 leading-snug font-serif">
+                    "Jorge y Mariangel no solo programan, ellos se meten en el
+                    alma del negocio. Los resultados superaron por mucho lo
+                    que esperábamos."
+                  </p>
+                  <p class="text-white font-bold tracking-tight text-lg">
+                    — Director de Startup
+                  </p>
+                </div>
+
+                <!-- Review 2 -->
+                <div
+                  class="bg-zinc-950/60 border border-white/5 rounded-[2rem] p-10 text-left shadow-2xl relative overflow-hidden group hover:border-brand-purple/50 transition-colors duration-500">
+                  <div class="flex gap-1.5 mb-8">
+                    <!-- 5 Stars SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                      fill="currentColor" class="text-brand-purple">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                      fill="currentColor" class="text-brand-purple">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                      fill="currentColor" class="text-brand-purple">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                      fill="currentColor" class="text-brand-purple">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                      fill="currentColor" class="text-brand-purple">
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                  </div>
+                  <p class="text-xl md:text-2xl font-medium text-slate-300 italic mb-10 leading-snug font-serif">
+                    "Pocas veces encuentras un equipo que combine diseño
+                    premium con una arquitectura técnica tan sólida. Son los
+                    mejores."
+                  </p>
+                  <p class="text-white font-bold tracking-tight text-lg">
+                    — Emprendedor Digital
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Contact CTA block -->
+          <section id="contacto" class="py-24 px-6 bg-white relative z-0">
+            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-center relative z-10">
+              <!-- Left: Branding & CTA -->
+              <div class="w-full lg:w-1/2 text-left">
+                <!-- Status Badge -->
+                <div
+                  class="inline-flex items-center gap-2 bg-slate-900 text-white rounded-full px-4 py-2 text-xs font-bold tracking-[0.15em] uppercase mb-8">
+                  <span class="w-2 h-2 rounded-full bg-brand-purple animate-pulse shrink-0"></span>
+                  Status: Buscando Clientes WOW
+                </div>
+
+                <h2
+                  class="text-5xl sm:text-6xl lg:text-7xl font-display font-black text-slate-900 leading-[0.9] tracking-tighter mb-8">
+                  Diseño &amp; Código <br /><span
+                    class="text-transparent bg-clip-text bg-brand-gradient">Extraordinario</span>.
+                </h2>
+
+                <p class="text-xl text-slate-400 max-w-md leading-snug font-bold mb-10">
+                  ¿Hacemos algo épico?<br /><span class="text-slate-900">Rellena el formulario y hablemos.</span>
+                </p>
+
+                <!-- WhatsApp Direct -->
+                <a href="https://wa.me/584243799214" target="_blank" rel="noopener noreferrer"
+                  class="inline-flex items-center gap-4 border border-slate-200 rounded-2xl px-6 py-4 hover:border-brand-purple/50 hover:bg-slate-50 transition-all group">
+                  <div class="w-10 h-10 rounded-xl bg-brand-gradient flex items-center justify-center shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                      fill="currentColor" class="text-white">
+                      <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                      <path
+                        d="M11.998 2C6.477 2 2 6.477 2 12c0 1.826.487 3.538 1.338 5.016L2 22l5.118-1.323A9.956 9.956 0 0 0 11.998 22C17.522 22 22 17.523 22 12S17.522 2 11.998 2zm0 18c-1.681 0-3.254-.478-4.587-1.306l-.328-.2-3.038.785.807-2.957-.217-.34A8 8 0 1 1 20 12a8 8 0 0 1-8.002 8z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-black text-slate-900 text-base leading-tight">
+                      WhatsApp Directo
+                    </p>
+                    <p class="text-sm text-brand-purple font-medium">
+                      Sin intermediarios, tú y nosotros.
+                    </p>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Right: Contact Form -->
+              <div class="w-full lg:w-1/2">
+                <div class="bg-white border border-slate-200/80 rounded-[2.5rem] p-8 md:p-10 shadow-2xl">
+                  <form onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <!-- Row 1: Nombre + WhatsApp -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label class="block text-[10px] font-bold tracking-[0.2em] uppercase text-slate-400 mb-2">Tu
+                          Nombre</label>
+                        <div class="relative">
+                          <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                            <circle cx="12" cy="7" r="4" />
+                          </svg>
+                          <input type="text" id="form-nombre" placeholder="Ej. Jorge o Mariangel" required
+                            class="w-full pl-9 pr-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-700 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-purple/30 focus:border-brand-purple/50 transition-all" />
+                        </div>
+                      </div>
+                      <div>
+                        <label
+                          class="block text-[10px] font-bold tracking-[0.2em] uppercase text-slate-400 mb-2">WhatsApp</label>
+                        <div class="relative">
+                          <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-4 h-4"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.17 6.17l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                          </svg>
+                          <input type="tel" id="form-whatsapp" placeholder="+58..." required
+                            class="w-full pl-9 pr-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-700 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-purple/30 focus:border-brand-purple/50 transition-all" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Row 2: Category Custom Dropdown -->
+                    <div>
+                      <label class="block text-[10px] font-bold tracking-[0.2em] uppercase text-slate-400 mb-2">¿Qué vas
+                        a crear?</label>
+                      <div class="relative" id="dd-categoria-wrapper">
+                        <!-- Hidden input to hold value for form submission -->
+                        <input type="hidden" id="form-categoria" name="categoria" required />
+                        <!-- Trigger button -->
+                        <button type="button" id="dd-categoria-btn" onclick="toggleDropdown('categoria')"
+                          class="w-full flex items-center justify-between pl-9 pr-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-400 bg-white focus:outline-none focus:ring-2 focus:ring-brand-purple/30 hover:border-slate-300 transition-all">
+                          <span id="dd-categoria-label">Elige una categoría</span>
+                          <svg id="dd-categoria-arrow" class="w-4 h-4 text-slate-400 transition-transform duration-300"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                          </svg>
+                        </button>
+                        <svg class="absolute left-3 top-[14px] text-slate-400 w-4 h-4 pointer-events-none"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2">
+                          <rect x="3" y="3" width="18" height="18" rx="2" />
+                          <line x1="3" y1="9" x2="21" y2="9" />
+                          <line x1="9" y1="21" x2="9" y2="9" />
+                        </svg>
+                        <!-- Dropdown panel -->
+                        <div id="dd-categoria-panel"
+                          class="absolute left-0 right-0 top-[calc(100%+6px)] z-50 bg-white border border-slate-200 rounded-2xl shadow-xl overflow-hidden origin-top scale-y-0 opacity-0 transition-all duration-200 ease-out pointer-events-none">
+                          <ul class="py-2 divide-y divide-slate-100 max-h-60 overflow-y-auto">
+                            <li>
+                              <button type="button" onclick="selectOption('categoria', 'Diagnóstico Técnico (15 min) / Auditoría')"
+                                class="w-full text-left px-5 py-3 text-sm font-semibold text-emerald-700 bg-emerald-50/50 hover:bg-emerald-50 transition-colors flex items-center justify-between">
+                                <span>Diagnóstico Técnico (15 min)</span>
+                                <span class="text-[10px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">Recomendado</span>
+                              </button>
+                            </li>
+                            <li>
+                              <button type="button" onclick="selectOption('categoria', 'Core: Automatización & Flujos n8n')"
+                                class="w-full text-left px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                Core: Automatización &amp; Flujos n8n
+                              </button>
+                            </li>
+                            <li>
+                              <button type="button" onclick="selectOption('categoria', 'Core: Sistemas CRM a Medida')"
+                                class="w-full text-left px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                Core: Sistemas CRM a Medida
+                              </button>
+                            </li>
+                            <li>
+                              <button type="button" onclick="selectOption('categoria', 'Core: Apps Web & Software')"
+                                class="w-full text-left px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                Core: Apps Web &amp; Software
+                              </button>
+                            </li>
+                            <li>
+                              <button type="button" onclick="selectOption('categoria', 'Core: Soluciones con IA')"
+                                class="w-full text-left px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                Core: Soluciones con IA
+                              </button>
+                            </li>
+                            <li>
+                              <button type="button" onclick="selectOption('categoria', 'Experiencia: UI/UX & Portafolios')"
+                                class="w-full text-left px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                Experiencia: UI/UX &amp; Portafolios
+                              </button>
+                            </li>
+                            <li>
+                              <button type="button" onclick="selectOption('categoria', 'Experiencia: Identidad Visual')"
+                                class="w-full text-left px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                Experiencia: Identidad Visual
+                              </button>
+                            </li>
+                            <li>
+                              <button type="button" onclick="selectOption('categoria', 'Experiencia: Contenido de Impacto / Video')"
+                                class="w-full text-left px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                Experiencia: Contenido de Impacto / Video
+                              </button>
+                            </li>
+                            <li>
+                              <button type="button" onclick="selectOption('categoria', 'Otro')"
+                                class="w-full text-left px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                Otro
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Row 3: Budget Custom Dropdown -->
+                    <div>
+                      <label class="block text-[10px] font-bold tracking-[0.2em] uppercase text-slate-400 mb-2">Tu
+                        Inversión Proyectada ($)</label>
+                      <div class="relative" id="dd-inversion-wrapper">
+                        <input type="hidden" id="form-inversion" name="inversion" required />
+                        <button type="button" id="dd-inversion-btn" onclick="toggleDropdown('inversion')"
+                          class="w-full flex items-center justify-between pl-9 pr-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-400 bg-white focus:outline-none focus:ring-2 focus:ring-brand-purple/30 hover:border-slate-300 transition-all">
+                          <span id="dd-inversion-label">Elige un rango realista</span>
+                          <svg id="dd-inversion-arrow" class="w-4 h-4 text-slate-400 transition-transform duration-300"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="6 9 12 15 18 9" />
+                          </svg>
+                        </button>
+                        <svg class="absolute left-3 top-[14px] text-slate-400 w-4 h-4 pointer-events-none"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2">
+                          <line x1="12" y1="1" x2="12" y2="23" />
+                          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                        </svg>
+                        <div id="dd-inversion-panel"
+                          class="absolute left-0 right-0 top-[calc(100%+6px)] z-50 bg-white border border-slate-200 rounded-2xl shadow-xl overflow-hidden origin-top scale-y-0 opacity-0 transition-all duration-200 ease-out pointer-events-none">
+                          <ul class="py-2 divide-y divide-slate-100">
+                            <li>
+                              <button type="button" onclick="
+                                    selectOption('inversion', '$500 – $1,000')
+                                  "
+                                class="w-full text-left px-5 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                $500 – $1,000
+                              </button>
+                            </li>
+                            <li>
+                              <button type="button" onclick="
+                                    selectOption('inversion', '$500 - $1,500')
+                                  "
+                                class="w-full text-left px-5 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                $500 - $1,500
+                              </button>
+                            </li>
+                            <li>
+                              <button type="button" onclick="
+                                    selectOption('inversion', '$1,500 - $3,000')
+                                  "
+                                class="w-full text-left px-5 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                $1,500 - $3,000
+                              </button>
+                            </li>
+                            <li>
+                              <button type="button" onclick="
+                                    selectOption('inversion', '$3,000 - $5,000')
+                                  "
+                                class="w-full text-left px-5 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                $3,000 - $5,000
+                              </button>
+                            </li>
+                            <li>
+                              <button type="button" onclick="
+                                    selectOption('inversion', 'Más de $5,000')
+                                  "
+                                class="w-full text-left px-5 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition-colors">
+                                Más de $5,000
+                              </button>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Row 4: Details -->
+                    <div>
+                      <label class="block text-[10px] font-bold tracking-[0.2em] uppercase text-slate-400 mb-2">Detalles
+                        del Éxito</label>
+                      <textarea id="form-detalles" rows="4" placeholder="Cuéntanos más para asombrarte..." required
+                        class="w-full px-4 py-3 border border-slate-200 rounded-xl text-sm text-slate-700 placeholder-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-purple/30 focus:border-brand-purple/50 transition-all resize-none"></textarea>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit"
+                      class="w-full bg-slate-900 text-white font-black text-lg py-4 rounded-2xl flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg group relative overflow-hidden">
+                      <div
+                        class="absolute inset-0 bg-brand-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      </div>
+                      <span class="relative z-10">Solicitar Diagn&oacute;stico / Propuesta</span>
+                      <svg class="relative z-10 w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2.5">
+                        <line x1="22" y1="2" x2="11" y2="13" />
+                        <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                      </svg>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <footer id="contact"
+          class="text-white pt-24 pb-12 text-center rounded-t-[3rem] overflow-hidden relative z-10 shadow-[0_-20px_40px_rgba(0,0,0,0.2)]"
+          style="
+              background-color: #18181b;
+              background-image: radial-gradient(
+                circle,
+                rgba(110, 231, 183, 0.35) 1.5px,
+                transparent 1.5px
+              );
+              background-size: 20px 20px;
+            ">
+          <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl sm:text-5xl md:text-7xl lg:text-[6rem] title-brand text-white mb-6 leading-tight">
+              &iquest;Listo para sistematizar y <br class="hidden md:block" />
+              <span class="relative inline-block px-2 rounded-xl" style="
+                    background-image: radial-gradient(
+                      circle,
+                      rgba(110, 231, 183, 0.5) 1.5px,
+                      transparent 1.5px
+                    );
+                    background-size: 12px 12px;
+                  ">escalar?</span>
+            </h2>
+            <p class="text-lg md:text-2xl text-slate-400 font-medium mb-12 max-w-2xl mx-auto">
+              Audita tus procesos y descubre qu&eacute; automatizar, o agenda una llamada de diagn&oacute;stico t&eacute;cnico (15 min) sin costo.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <a href="https://wa.me/584243799214?text=Hola%20DuaLink!%20Quiero%20agendar%20una%20llamada%20de%20diagn%C3%B3stico%20t%C3%A9cnico%20de%2015%20min."
+                target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-3 bg-brand-gradient text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg hover:scale-105 transition-transform shadow-lg">
+                Agenda diagn&oacute;stico t&eacute;cnico (15 min)
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  class="border-2 border-white rounded-full p-0.5" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
+              <a href="https://wa.me/584243799214?text=Hola%20DuaLink!%20Quiero%20auditar%20mis%20procesos%20y%20descubrir%20qu%C3%A9%20automatizar."
+                target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg border border-white/20 transition-all">
+                Auditar mis procesos
+              </a>
+            </div>
+
+            <div class="mt-32 pt-12 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center md:items-start gap-12 text-left w-full">
+              <div class="flex flex-col items-center md:items-start group">
+                <a href="/" class="flex flex-col items-center md:items-start mb-4">
+                  <div
+                    class="text-2xl md:text-3xl font-black font-display tracking-tighter leading-none flex items-center">
+                    <span class="text-emerald-500">Dua</span>
+                    <span class="text-lime-800">Link</span>
+                  </div>
+                  <span
+                    class="text-[9px] md:text-[10px] font-bold tracking-[0.3em] text-emerald-500/80 mt-1 uppercase">Studio</span>
+                </a>
+                <p class="text-slate-500 font-medium text-sm tracking-wide text-center md:text-left max-w-xs">
+                  Socios t&eacute;cnicos en ingenier&iacute;a de software, CRM y automatizaci&oacute;n. Code &amp; Design con ADN venezolano. ✨
+                </p>
+              </div>
+
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16 w-full md:w-auto">
+                <div class="flex flex-col gap-3 items-center md:items-start">
+                  <span class="text-white font-bold tracking-widest text-xs uppercase mb-2">Core de Ingenier&iacute;a</span>
+                  <a href="#quehacemos" class="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium">Apps Web Robustas</a>
+                  <a href="#quehacemos" class="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium">Sistemas CRM</a>
+                  <a href="#quehacemos" class="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium">Workflows n8n</a>
+                  <a href="#quehacemos" class="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium">Soluciones con IA</a>
+                </div>
+                
+                <div class="flex flex-col gap-3 items-center md:items-start">
+                  <span class="text-white font-bold tracking-widest text-xs uppercase mb-2">Experiencia &amp; Marca</span>
+                  <a href="#quehacemos" class="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium">UI/UX Premium</a>
+                  <a href="#quehacemos" class="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium">Identidad Visual</a>
+                  <a href="#quehacemos" class="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium">Contenido de Impacto</a>
+                  <a href="#proceso" class="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium">M&eacute;todo de Trabajo</a>
+                </div>
+
+                <div class="flex flex-col gap-3 items-center md:items-start col-span-2 md:col-span-1">
+                  <span class="text-white font-bold tracking-widest text-xs uppercase mb-2">Acci&oacute;n R&aacute;pida</span>
+                  <a href="https://wa.me/584243799214?text=Hola%20DuaLink!%20Quiero%20agendar%20una%20llamada%20de%20diagn%C3%B3stico%20t%C3%A9cnico%20de%2015%20min." class="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium">Diagn&oacute;stico T&eacute;cnico (15 min)</a>
+                  <a href="https://wa.me/584243799214?text=Hola%20DuaLink!%20Quiero%20auditar%20mis%20procesos%20y%20descubrir%20qu%C3%A9%20automatizar." class="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium">Auditor&iacute;a de Procesos</a>
+                  <a href="#contacto" class="text-slate-400 hover:text-emerald-400 transition-colors text-sm font-medium">Formulario Directo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+
+  <!-- GSAP & ScrollTrigger: must load before animation scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script>
+    // Fix scroll: fuerza posición top al cargar y en cada pageshow
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    window.addEventListener('pageshow', (e) => {
+      // Cubre también el caso de bfcache (botón atrás del navegador)
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    });
+
+    // Mobile menu toggle logic
+    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+    mobileMenuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+      mobileMenu.classList.toggle("flex");
+    });
+
+    mobileNavLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        mobileMenu.classList.remove("flex");
+      });
+    });
+
+    // Initialize GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Initial load animations (Hero section)
+    const tlHero = gsap.timeline({
+      defaults: { ease: "power3.out", duration: 1 },
+      onComplete: () => {
+        // Garantiza visibilidad total al terminar
+        gsap.set([
+          "#hero-badge", "#inicio h1 > div > span",
+          "#inicio .text-center > p", "#hero-chips > span",
+          "#hero-cta > a"
+        ], { clearProps: "all" });
+      }
+    });
+
+    tlHero
+      .from("#hero-badge", { y: -24, opacity: 0, duration: 0.7 }, 0.2)
+      .from(
+        "#inicio h1 > div > span",
+        { y: 60, opacity: 0, stagger: 0.08, duration: 1 },
+        0.5,
+      )
+      .from("#inicio .text-center > p", { y: 20, opacity: 0, duration: 0.8 }, 1.1)
+      .from(
+        "#hero-chips > span",
+        { y: 16, opacity: 0, stagger: 0.05, duration: 0.45, ease: "back.out(2)" },
+        1.3,
+      )
+      .from(
+        "#hero-cta > a",
+        { y: 24, opacity: 0, stagger: 0.1, duration: 0.7 },
+        1.55,
+      );
+
+    // Navbar Scroll Effect (Updated for better blending)
+    const navContainer = document.getElementById("navbar-container");
+    const mainNav = document.getElementById("main-nav");
+
+    window.addEventListener("scroll", () => {
+      const scrollPos = window.scrollY;
+      if (scrollPos > 40) {
+        // Scrolled: Transparent + Glassmorphism
+        mainNav.classList.remove("bg-black/95", "shadow-[0_8px_32px_rgba(0,0,0,0.5)]");
+        mainNav.classList.add("bg-black/40", "backdrop-blur-3xl", "border-white/20", "shadow-xl");
+      } else {
+        // Top: Solid & Premium
+        mainNav.classList.add("bg-black/95", "shadow-[0_8px_32px_rgba(0,0,0,0.5)]");
+        mainNav.classList.remove("bg-black/40", "backdrop-blur-3xl", "border-white/20", "shadow-xl");
+      }
+    });
+
+    // Video hover play/pause
+    function playVideo(id) {
+      const v = document.getElementById(id);
+      const icon = document.getElementById(id + "-icon");
+      if (v) {
+        v.play();
+      }
+      if (icon) {
+        icon.style.opacity = "0";
+        icon.style.pointerEvents = "none";
+      }
+    }
+    function pauseVideo(id) {
+      const v = document.getElementById(id);
+      const icon = document.getElementById(id + "-icon");
+      if (v) {
+        v.pause();
+        v.currentTime = 0;
+      }
+      if (icon) {
+        icon.style.opacity = "1";
+        icon.style.pointerEvents = "none";
+      }
+    }
+
+    // Custom Dropdown Logic
+    const openDropdowns = new Set();
+
+    function toggleDropdown(id) {
+      const panel = document.getElementById(`dd-${id}-panel`);
+      const arrow = document.getElementById(`dd-${id}-arrow`);
+      const isOpen = openDropdowns.has(id);
+
+      // Close all open dropdowns
+      openDropdowns.forEach((otherId) => {
+        document
+          .getElementById(`dd-${otherId}-panel`)
+          .classList.remove(
+            "scale-y-100",
+            "opacity-100",
+            "pointer-events-auto",
+          );
+        document
+          .getElementById(`dd-${otherId}-panel`)
+          .classList.add("scale-y-0", "opacity-0", "pointer-events-none");
+        document
+          .getElementById(`dd-${otherId}-arrow`)
+          .classList.remove("rotate-180");
+        openDropdowns.delete(otherId);
+      });
+
+      if (!isOpen) {
+        panel.classList.remove(
+          "scale-y-0",
+          "opacity-0",
+          "pointer-events-none",
+        );
+        panel.classList.add(
+          "scale-y-100",
+          "opacity-100",
+          "pointer-events-auto",
+        );
+        arrow.classList.add("rotate-180");
+        openDropdowns.add(id);
+      }
+    }
+
+    function selectOption(id, value) {
+      document.getElementById(`form-${id}`).value = value;
+      document.getElementById(`dd-${id}-label`).textContent = value;
+      document
+        .getElementById(`dd-${id}-label`)
+        .classList.remove("text-slate-400");
+      document
+        .getElementById(`dd-${id}-label`)
+        .classList.add("text-slate-700");
+      toggleDropdown(id); // close after selection
+    }
+
+    // Close dropdowns on outside click
+    document.addEventListener("click", function (e) {
+      ["categoria", "inversion"].forEach((id) => {
+        const wrapper = document.getElementById(`dd-${id}-wrapper`);
+        if (wrapper && !wrapper.contains(e.target) && openDropdowns.has(id)) {
+          toggleDropdown(id);
+        }
+      });
+    });
+
+    // Form Submit Handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const nombre = document.getElementById("form-nombre").value;
+      const whatsapp = document.getElementById("form-whatsapp").value;
+      const categoria = document.getElementById("form-categoria").value;
+      const inversion = document.getElementById("form-inversion").value;
+      const detalles = document.getElementById("form-detalles").value;
+      if (!categoria || !inversion) {
+        alert("Por favor selecciona una categoría y un rango de inversión.");
+        return;
+      }
+      const msg = `Hola! Me llamo *${nombre}*.\n📱 WhatsApp: ${whatsapp}\n🚀 Quiero crear: ${categoria}\n💰 Inversión proyectada: ${inversion}\n📝 Detalles: ${detalles}`;
+      window.open(
+        `https://wa.me/584243799214?text=${encodeURIComponent(msg)}`,
+        "_blank",
+      );
+    }
+
+    // Navbar animation
+    // Simplified Navbar load animation
+    gsap.to("#navbar-container", {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power3.out",
+      delay: 0.2,
+    });
+
+    // Nosotros Section Animations
+    gsap.from("#nosotros img", {
+      scrollTrigger: {
+        trigger: "#nosotros",
+        start: "top 75%",
+      },
+      scale: 0.8,
+      rotation: -10,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power3.out",
+    });
+
+    const aboutTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#nosotros",
+        start: "top 60%",
+      },
+    });
+
+    aboutTimeline
+      .from("#nosotros span.text-brand-purple", {
+        x: -30,
+        opacity: 0,
+        duration: 0.6,
+      })
+      .from("#nosotros h2", { y: 30, opacity: 0, duration: 0.8 }, "-=0.3")
+      .from(
+        "#nosotros p",
+        { y: 20, opacity: 0, stagger: 0.2, duration: 0.8 },
+        "-=0.4",
+      )
+      .from(
+        "#nosotros .stat-card",
+        { y: 30, opacity: 0, stagger: 0.15, duration: 0.8 },
+        "-=0.4",
+      );
+
+    // Stats Counter Animation
+    const counters = document.querySelectorAll('.stat-counter');
+    counters.forEach(counter => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      gsap.to(counter, {
+        innerText: target,
+        duration: 2,
+        snap: { innerText: 1 },
+        scrollTrigger: {
+          trigger: counter,
+          start: "top 90%",
+        },
+        onUpdate: function () {
+          if (target > 1000) {
+            counter.innerText = Math.floor(this.targets()[0].innerText).toLocaleString('es-ES');
+          }
+        }
+      });
+    });
+
+    // Que hacemos Section Animations
+    const workTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#quehacemos",
+        start: "top 60%",
+      },
+    });
+
+    workTimeline
+      .from("#quehacemos h2", {
+        y: 50,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 0.8,
+      })
+      .from(
+        "#quehacemos p.max-w-xl",
+        { y: 20, opacity: 0, duration: 0.8 },
+        "-=0.4",
+      )
+      .from(
+        "#quehacemos .perspective-1000",
+        { x: 50, opacity: 0, rotationY: -15, duration: 1.2 },
+        "-=0.8",
+      );
+
+    // Contact CTA Animations
+    gsap.from("#contacto h2", {
+      scrollTrigger: {
+        trigger: "#contacto",
+        start: "top 75%",
+      },
+      y: 40,
+      opacity: 0,
+      duration: 1,
+      ease: "power3.out",
+    });
+
+    gsap.from("#contacto p", {
+      scrollTrigger: {
+        trigger: "#contacto",
+        start: "top 70%",
+      },
+      y: 20,
+      opacity: 0,
+      duration: 1,
+      delay: 0.2,
+      ease: "power3.out",
+    });
+
+    gsap.from("#contacto a", {
+      scrollTrigger: {
+        trigger: "#contacto",
+        start: "top 70%",
+      },
+      scale: 0.9,
+      opacity: 0,
+      duration: 0.8,
+      delay: 0.4,
+      ease: "back.out(1.5)",
+    });
+
+    // Footer Animations
+    gsap.from("footer h2, footer p, footer a", {
+      scrollTrigger: {
+        trigger: "footer",
+        start: "top 80%",
+      },
+      y: 30,
+      opacity: 0,
+      stagger: 0.2,
+      duration: 0.8,
+      ease: "power3.out",
+    });
+  </script>
+  <!-- Video Lightbox Modal -->
+  <div id="video-modal"
+    class="fixed inset-0 z-[9999] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300"
+    onmouseenter="cancelClose()" onmouseleave="scheduleClose()" onclick="closeModal()">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/90 backdrop-blur-sm"></div>
+    <!-- Modal content -->
+    <div class="relative z-10 w-full max-w-sm mx-auto transform transition-all duration-500 scale-95 opacity-0"
+      id="modal-container" onclick="event.stopPropagation()">
+      <!-- Close button -->
+      <button onclick="closeModal()"
+        class="absolute -top-12 right-0 text-white/70 hover:text-white transition-colors flex items-center gap-2 text-sm font-bold">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          class="w-5 h-5">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+        Cerrar
+      </button>
+      <!-- Title -->
+      <p id="modal-title" class="text-white/50 text-xs font-bold tracking-widest uppercase mb-3 text-center"></p>
+      <!-- Video container -->
+      <div class="rounded-[2rem] overflow-hidden shadow-2xl border border-white/10" style="aspect-ratio: 9/16">
+        <video id="modal-video" class="w-full h-full object-cover" loop muted playsinline controls></video>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Premium Preloader Logic
+    window.addEventListener("load", function () {
+      const tl = gsap.timeline();
+
+      // Initial state
+      gsap.set("#preloader-progress", { opacity: 0, y: 10 });
+      gsap.set(".letter", { opacity: 0, scale: 0.8, filter: "blur(10px)" });
+      gsap.set(".seg", { opacity: 0 });
+
+      // 1. Grid Reveal
+      tl.to("#preloader", {
+        duration: 1,
+        onStart: () => {
+          document.styleSheets[0].addRule("#preloader::before", "opacity: 1; transition: opacity 1s;");
+        }
+      })
+        .to("#preloader-progress", {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out",
+        }, "-=0.5")
+
+      // 2. Modular Construction Animation
+      const containers = document.querySelectorAll(".letter-container");
+
+      containers.forEach((container, i) => {
+        const segments = container.querySelectorAll(".seg");
+        const letter = container.querySelector(".letter");
+        const delay = "-=" + (i === 0 ? "0" : "0.1");
+
+        tl.to(segments, {
+          opacity: 0.8,
+          duration: 0.05,
+          stagger: 0.015,
+          ease: "none"
+        }, delay)
+          .fromTo(segments[0], { height: "0%" }, { height: "100%", duration: 0.1 }, "<")
+          .fromTo(segments[1], { width: "0%" }, { width: "100%", duration: 0.1 }, ">-0.03")
+          .fromTo(segments[2], { width: "0%" }, { width: "100%", duration: 0.1 }, ">-0.03")
+          .fromTo(segments[3], { height: "0%" }, { height: "100%", duration: 0.1 }, ">-0.03")
+          .to(letter, {
+            opacity: 1,
+            scale: 1,
+            filter: "blur(0px)",
+            duration: 0.2,
+            ease: "power2.out",
+            onStart: () => {
+              gsap.to(container, {
+                backgroundColor: "rgba(6, 78, 59, 0.15)",
+                duration: 0.04,
+                yoyo: true,
+                repeat: 1
+              });
+            }
+          }, ">-0.08")
+          .to(segments, {
+            opacity: 0,
+            duration: 0.08,
+            scale: 1.1,
+            ease: "power2.in"
+          }, "<+0.04");
+      });
+
+      // 3. Finalize Progress
+      tl.to("#preloader-bar", {
+        width: "100%",
+        duration: 0.4,
+        ease: "power2.inOut",
+      }, "-=0.15")
+        .to("#preloader-logo", {
+          filter: "drop-shadow(0 0 30px rgba(132, 204, 22, 0.4))",
+          scale: 1.1,
+          duration: 0.3,
+          ease: "back.out(1.7)"
+        })
+
+        // 4. Lift up preloader (Curtain effect)
+        .to("#preloader", {
+          y: "-100%",
+          duration: 0.9,
+          ease: "power4.inOut",
+          onComplete: () => {
+            document.getElementById("preloader").style.display = "none";
+            document.body.style.overflow = "auto";
+            ScrollTrigger.refresh();
+          },
+        })
+
+        // 5. Entrance for the main content
+        .from(
+          "#root",
+          {
+            opacity: 0,
+            scale: 0.98,
+            duration: 1,
+            ease: "power2.out",
+          },
+          "-=0.5",
+        );
+    });
+
+    const closeTimer = null;
+    let hoverTimer = null;
+
+    function startHoverTimer(src, title, cardId) {
+      cancelHoverTimer(cardId);
+      cancelClose();
+
+      // Start progress bar animation
+      const progress = document.getElementById("progress-" + cardId);
+      if (progress) {
+        progress.style.transition = "none";
+        progress.style.transform = "scaleX(0)";
+        setTimeout(() => {
+          progress.style.transition = "transform 1000ms linear";
+          progress.style.transform = "scaleX(1)";
+        }, 10);
+      }
+
+      // The video preview playback on hover is disabled as requested
+      // const vidPreview = document.getElementById('vid-' + cardId);
+      // if (vidPreview) vidPreview.play();
+
+      hoverTimer = setTimeout(() => {
+        openModal(src, title);
+        resetProgress(cardId);
+      }, 1000);
+    }
+
+    function cancelHoverTimer(cardId) {
+      if (hoverTimer) {
+        clearTimeout(hoverTimer);
+        hoverTimer = null;
+      }
+      resetProgress(cardId);
+
+      // Pause card video preview
+      const vidPreview = document.getElementById("vid-" + cardId);
+      if (vidPreview) {
+        vidPreview.pause();
+        vidPreview.currentTime = 0;
+      }
+
+      scheduleClose();
+    }
+
+    function resetProgress(cardId) {
+      const progress = document.getElementById("progress-" + cardId);
+      if (progress) {
+        progress.style.transition = "transform 200ms ease-out";
+        progress.style.transform = "scaleX(0)";
+      }
+    }
+
+    function openModal(src, title) {
+      cancelClose();
+      const modal = document.getElementById("video-modal");
+      const container = document.getElementById("modal-container");
+      const vid = document.getElementById("modal-video");
+      const ttl = document.getElementById("modal-title");
+
+      if (
+        vid.src !== location.origin + "/" + src &&
+        vid.getAttribute("src") !== src
+      ) {
+        vid.src = src;
+      }
+      ttl.textContent = title;
+
+      modal.classList.remove("opacity-0", "pointer-events-none");
+      modal.classList.add("opacity-100");
+
+      // Trigger container animation
+      setTimeout(() => {
+        container.classList.remove("scale-95", "opacity-0");
+        container.classList.add("scale-100", "opacity-100");
+        vid.play();
+      }, 50);
+
+      document.body.style.overflow = "hidden";
+    }
+
+    function scheduleClose() {
+      if (!closeTimer) {
+        closeTimer = setTimeout(() => closeModal(), 300);
+      }
+    }
+
+    function cancelClose() {
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+    }
+
+    function closeModal() {
+      cancelClose();
+      const modal = document.getElementById("video-modal");
+      const container = document.getElementById("modal-container");
+      const vid = document.getElementById("modal-video");
+
+      container.classList.remove("scale-100", "opacity-100");
+      container.classList.add("scale-95", "opacity-0");
+
+      setTimeout(() => {
+        modal.classList.add("opacity-0", "pointer-events-none");
+        modal.classList.remove("opacity-100");
+        vid.pause();
+        vid.src = "";
+        document.body.style.overflow = "";
+      }, 300);
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+
+    // Autoplay disabled as requested
+  </script>
+
+  <!-- ===== WhatsApp Chat Widget ===== -->
+  <style>
+    /* --- Floating Button --- */
+    #wa-widget-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.45);
+      border: none;
+      outline: none;
+      transition: transform 0.25s cubic-bezier(.34, 1.56, .64, 1), box-shadow 0.25s;
+      animation: wa-pulse 2.8s ease-in-out infinite;
+    }
+
+    #wa-widget-btn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 10px 36px rgba(37, 211, 102, 0.6);
+      animation: none;
+    }
+
+    @keyframes wa-pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 6px 28px rgba(37, 211, 102, 0.45);
+      }
+
+      50% {
+        box-shadow: 0 6px 42px rgba(37, 211, 102, 0.75);
+      }
+    }
+
+    /* --- Badge --- */
+    #wa-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #ef4444;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #fff;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    #wa-badge.hidden {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    /* --- Panel --- */
+    #wa-panel {
+      position: fixed;
+      bottom: 104px;
+      right: 28px;
+      z-index: 9998;
+      width: 340px;
+      max-width: calc(100vw - 40px);
+      background: #18181b;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      overflow: hidden;
+      transform: scale(0.85) translateY(20px);
+      transform-origin: bottom right;
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.32s cubic-bezier(.34, 1.56, .64, 1), opacity 0.28s ease;
+    }
+
+    #wa-panel.open {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* --- Panel Header --- */
+    .wa-header {
+      background: linear-gradient(135deg, #115e59 0%, #166534 100%);
+      padding: 18px 20px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+    }
+
+    .wa-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #84cc16, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+    }
+
+    .wa-header-info {
+      flex: 1;
+    }
+
+    .wa-header-name {
+      font-weight: 800;
+      font-size: 14px;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: -0.02em;
+    }
+
+    .wa-header-status {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.65);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 2px;
+    }
+
+    .wa-online-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 6px #4ade80;
+    }
+
+    #wa-close {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+
+    #wa-close:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    /* --- Chat Body --- */
+    .wa-body {
+      padding: 18px 16px 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 320px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+    }
+
+    /* --- Bubbles --- */
+    .wa-bubble {
+      max-width: 88%;
+      padding: 11px 14px;
+      border-radius: 16px;
+      font-size: 13px;
+      line-height: 1.55;
+      font-weight: 500;
+      color: #e2e8f0;
+      animation: wa-bubble-in 0.3s cubic-bezier(.34, 1.56, .64, 1) both;
+    }
+
+    @keyframes wa-bubble-in {
+      from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .wa-bubble-bot {
+      background: #27272a;
+      border-bottom-left-radius: 4px;
+      align-self: flex-start;
+    }
+
+    .wa-bubble-user {
+      background: linear-gradient(135deg, #115e59 0%, #166534 100%);
+      border-bottom-right-radius: 4px;
+      align-self: flex-end;
+      color: #fff;
+    }
+
+    /* --- Options --- */
+    .wa-options {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      padding: 0 16px 14px;
+      animation: wa-bubble-in 0.35s 0.1s both;
+    }
+
+    .wa-opt-btn {
+      background: rgba(132, 204, 22, 0.08);
+      border: 1px solid rgba(132, 204, 22, 0.25);
+      color: #84cc16;
+      border-radius: 12px;
+      padding: 10px 14px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.2s, transform 0.15s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .wa-opt-btn:hover {
+      background: rgba(132, 204, 22, 0.16);
+      transform: translateX(3px);
+    }
+
+    .wa-opt-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* --- CTA WhatsApp --- */
+    .wa-cta {
+      margin: 8px 16px 16px;
+      background: linear-gradient(135deg, #115e59 0%, #166534 100%);
+      border-radius: 14px;
+      padding: 14px 16px;
+      animation: wa-bubble-in 0.4s 0.1s both;
+    }
+
+    .wa-cta p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 12px;
+      margin: 0 0 10px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .wa-cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 12px;
+      background: #25d366;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .wa-cta-btn:hover {
+      background: #1db954;
+      transform: scale(1.03);
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 480px) {
+      #wa-panel {
+        right: 12px;
+        bottom: 96px;
+        width: calc(100vw - 24px);
+      }
+
+      #wa-widget-btn {
+        right: 16px;
+        bottom: 20px;
+      }
+    }
+  </style>
+
+  <!-- Widget HTML -->
+  <div id="wa-widget-btn" role="button" aria-label="Abrir chat de WhatsApp" onclick="waToggle()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#fff">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+    <span id="wa-badge">1</span>
+  </div>
+
+  <div id="wa-panel" role="dialog" aria-modal="true" aria-label="Chat DuaLink">
+    <!-- Header -->
+    <div class="wa-header">
+      <div class="wa-avatar">🚀</div>
+      <div class="wa-header-info">
+        <div class="wa-header-name">DuaLink Studio</div>
+        <div class="wa-header-status">
+          <span class="wa-online-dot"></span>
+          En línea — respondemos rápido
+        </div>
+      </div>
+      <button id="wa-close" onclick="waToggle()" aria-label="Cerrar chat">✕</button>
+    </div>
+
+    <!-- Chat messages area -->
+    <div class="wa-body" id="wa-body">
+      <div class="wa-bubble wa-bubble-bot">
+        👋 ¡Hola! Soy el asistente de <strong>DuaLink</strong>.<br>¿Sobre qué te puedo contar antes de hablar con el
+        equipo?
+      </div>
+    </div>
+
+    <!-- Option buttons -->
+    <div class="wa-options" id="wa-options">
+      <button class="wa-opt-btn" onclick="waAnswer('que', this)">🌐 ¿Qué hace DuaLink?</button>
+      <button class="wa-opt-btn" onclick="waAnswer('costo', this)">💰 ¿Cuánto cuesta un proyecto?</button>
+      <button class="wa-opt-btn" onclick="waAnswer('duracion', this)">⏱️ ¿Cuánto dura un proyecto?</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const WA_NUMBER = '584243799214';
+      const WA_MESSAGE = encodeURIComponent('Hola, ya vi la info en la página y quiero hablar sobre mi proyecto con DuaLink.');
+
+      const answers = {
+        que: {
+          user: '🌐 ¿Qué hace DuaLink?',
+          bot: 'Somos <strong>Jorge y Mariangel</strong>, una Agencia digital que hace portafolios creativos, apps web, sistemas CRM, edición de video e inteligencia artificial. Convertimos ideas en productos digitales que dominan el mercado. 💡'
+        },
+        costo: {
+          user: '💰 ¿Cuánto cuesta un proyecto?',
+          bot: 'No trabajamos con paquetes rígidos — <strong>cada proyecto es cotizado a medida</strong> según su alcance. Los rangos varían desde portafolios básicos hasta sistemas complejos. La primera conversación siempre es sin costo. 🤝'
+        },
+        duracion: {
+          user: '⏱️ ¿Cuánto dura un proyecto?',
+          bot: 'Depende de la complejidad. Un portafolio puede estar listo en <strong>3–5 días</strong>. Una app web o CRM puede tomar <strong>1–3 semanas</strong>. Siempre damos un cronograma claro antes de empezar. 📅'
+        }
+      };
+
+      let answered = new Set();
+      let panelOpen = false;
+
+      window.waToggle = function () {
+        panelOpen = !panelOpen;
+        document.getElementById('wa-panel').classList.toggle('open', panelOpen);
+        if (panelOpen) {
+          document.getElementById('wa-badge').classList.add('hidden');
+        }
+      };
+
+      window.waAnswer = function (key, btn) {
+        if (answered.has(key)) return;
+        answered.add(key);
+        btn.disabled = true;
+        btn.style.textDecoration = 'line-through';
+
+        const body = document.getElementById('wa-body');
+
+        // User bubble
+        const userBub = document.createElement('div');
+        userBub.className = 'wa-bubble wa-bubble-user';
+        userBub.textContent = answers[key].user;
+        body.appendChild(userBub);
+
+        // Bot bubble (with slight delay)
+        setTimeout(() => {
+          const botBub = document.createElement('div');
+          botBub.className = 'wa-bubble wa-bubble-bot';
+          botBub.innerHTML = answers[key].bot;
+          body.appendChild(botBub);
+          body.scrollTop = body.scrollHeight;
+
+          // Show CTA after 2 questions answered
+          if (answered.size >= 2 && !document.getElementById('wa-cta')) {
+            setTimeout(showCTA, 400);
+          }
+        }, 420);
+
+        body.scrollTop = body.scrollHeight;
+      };
+
+      function showCTA() {
+        const opts = document.getElementById('wa-options');
+        const cta = document.createElement('div');
+        cta.className = 'wa-cta';
+        cta.id = 'wa-cta';
+        cta.innerHTML = `
+          <p>¿Listo para dar el siguiente paso?<br>Habla directamente con Jorge o Mariangel 👇</p>
+          <a class="wa-cta-btn" href="https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Hablar por WhatsApp →
+          </a>
+        `;
+        opts.parentNode.insertBefore(cta, opts.nextSibling);
+        setTimeout(() => {
+          const body = document.getElementById('wa-body');
+          body.scrollTop = body.scrollHeight;
+        }, 100);
+      }
+
+    })();
+  </script>
+  <!-- ===== /WhatsApp Chat Widget ===== -->
+</body>
+
+</html>

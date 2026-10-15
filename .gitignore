@@ -1,0 +1,18 @@
+# Node
+node_modules/
+.npm/
+
+# Local TLS certs and keys
+*.pem
+*.key
+cert.pem
+key.pem
+
+# Vercel
+.vercel
+
+# Backups & temp
+*backup*
+*original*
+.DS_Store
+Thumbs.db

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="./dl-icon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyectos | DUALINK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@700;800;900&amp;display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: "#115e59",
+              blue: "#84cc16",
+            },
+          },
+          backgroundImage: {
+            "brand-gradient": "linear-gradient(135deg, #115e59 0%, #84cc16 100%)",
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            display: ['"Plus Jakarta Sans"', "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    /* Critical Base Styles */
+    body {
+      background-color: #030712 !important;
+      color: #ffffff !important;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .category-row-scroll {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      gap: 1.5rem !important;
+      overflow-x: auto !important;
+      padding-bottom: 2rem !important;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .category-row-scroll::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: "#115e59",
+              blue: "#84cc16",
+            },
+          },
+          backgroundImage: {
+            "brand-gradient": "linear-gradient(135deg, #115e59 0%, #84cc16 100%)",
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            display: ['"Plus Jakarta Sans"', "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .project-card {
+        @apply block relative overflow-hidden rounded-2xl bg-slate-900 border border-white/5 transition-all duration-500 hover:scale-[1.02] hover:border-brand-blue/30 hover:shadow-[0_20px_50px_rgba(132,204,22,0.1)];
+      }
+      .card-overlay {
+        @apply absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-6 flex flex-col justify-end opacity-90 transition-opacity;
+      }
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+
+<body class="antialiased">
+  <!-- Navbar -->
+  <div class="absolute top-10 left-0 right-0 z-50 flex justify-center px-4">
+    <nav id="main-nav"
+      class="text-white shadow-2xl rounded-full px-6 py-2 flex items-center justify-between w-full max-w-xl bg-slate-950/80 backdrop-blur-xl border border-white/10 ring-1 ring-white/10">
+      <div class="flex items-center text-xs font-bold tracking-tight">
+        <a href="/index.html" class="text-white hover:text-brand-blue transition-colors">Inicio</a>
+      </div>
+      <div class="flex-shrink-0 flex items-center">
+        <a href="/index.html" class="flex flex-col items-center justify-center group">
+          <div class="text-lg md:text-xl font-black font-display tracking-tighter leading-none">
+            <span class="text-emerald-500">Dua</span><span class="text-brand-blue">Link</span>
+          </div>
+        </a>
+      </div>
+      <div class="flex items-center text-xs font-bold tracking-tight">
+        <a href="https://wa.me/584243799214?text=Hola%20DuaLink,%20quiero%20agendar%20una%20llamada%20de%20diagnóstico%20técnico%20de%2015%20min." target="_blank"
+          class="bg-brand-gradient text-white px-4 py-1.5 rounded-full font-bold hover:scale-105 transition-all shadow-[0_0_15px_rgba(17,94,89,0.3)]">Diagnóstico (15 min)</a>
+      </div>
+    </nav>
+  </div>
+
+  <main class="pt-32 pb-20 px-6 max-w-7xl mx-auto" id="main-content">
+    
+    <!-- Hero / Intro -->
+    <header class="mb-20" id="page-hero">
+      <h1 class="text-5xl md:text-7xl font-display font-black tracking-tighter mb-6">Nuestros <span class="text-brand-blue">Proyectos</span></h1>
+      <p class="text-xl text-slate-400 max-w-2xl leading-relaxed">
+        Explora cómo estamos transformando ideas en realidades digitales de alto impacto a través de nuestras diferentes especialidades.
+      </p>
+    </header>
+
+    <!-- Back button (hidden by default) -->
+    <button id="back-to-categories" class="hidden items-center gap-2 text-brand-blue font-bold mb-10 hover:translate-x-[-4px] transition-transform" onclick="resetFilters()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      Volver a todas las categorías
+    </button>
+
+    <div id="projects-wrapper">
+      
+      <!-- Category: Páginas Web -->
+      <section class="project-category-section mb-20" data-category="web">
+        <div class="flex items-end justify-between mb-8">
+          <div>
+            <h2 class="text-3xl font-display font-black mb-2">Páginas Web</h2>
+            <div class="h-1 w-12 bg-brand-blue rounded-full"></div>
+          </div>
+          <button class="text-brand-blue font-bold hover:text-[#65a30d] transition-colors flex items-center gap-2 category-btn" onclick="filterCategory('web')">
+            Ver todo
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        
+        <div class="category-row-scroll flex flex-row flex-nowrap overflow-x-auto gap-6 pb-8 no-scrollbar">
+          <!-- Card Forno Oscuro -->
+          <a href="https://forno-oscuro.netlify.app/" target="_blank" class="project-card flex-shrink-0 w-[240px] md:w-[320px] snap-start aspect-[16/10]">
+            <img src="https://api.microlink.io/?url=https://forno-oscuro.netlify.app/&screenshot=true&meta=false&embed=screenshot.url" alt="Forno Oscuro Project" class="w-full h-full object-cover transition-transform duration-700">
+            <div class="card-overlay">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-brand-blue mb-2">Web / E-commerce</span>
+              <h3 class="text-xl font-bold">Forno Oscuro</h3>
+            </div>
+          </a>
+          <!-- Card Cerrajería a tu Servicio -->
+          <a href="https://cerrajeria-a-tu-servicio.netlify.app/" target="_blank" class="project-card flex-shrink-0 w-[240px] md:w-[320px] snap-start aspect-[16/10]">
+            <img src="https://api.microlink.io/?url=https://cerrajeria-a-tu-servicio.netlify.app/&screenshot=true&meta=false&embed=screenshot.url" alt="Cerrajería a tu Servicio Project" class="w-full h-full object-cover transition-transform duration-700">
+            <div class="card-overlay">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-brand-blue mb-2">Landing Page</span>
+              <h3 class="text-xl font-bold">Cerrajería a tu Servicio</h3>
+            </div>
+          </a>
+          <!-- Card Bloom Atelier -->
+          <a href="https://bloom-aterlier.netlify.app/" target="_blank" class="project-card flex-shrink-0 w-[240px] md:w-[320px] snap-start aspect-[16/10]">
+            <img src="https://api.microlink.io/?url=https://bloom-aterlier.netlify.app/&screenshot=true&meta=false&embed=screenshot.url" alt="Bloom Atelier Project" class="w-full h-full object-cover transition-transform duration-700">
+            <div class="card-overlay">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-brand-blue mb-2">Portfolio</span>
+              <h3 class="text-xl font-bold">Bloom Atelier</h3>
+            </div>
+          </a>
+          <!-- Card Stunning Mousse -->
+          <a href="https://stunning-mousse-cc0829.netlify.app/" target="_blank" class="project-card flex-shrink-0 w-[240px] md:w-[320px] snap-start aspect-[16/10]">
+            <img src="https://api.microlink.io/?url=https://stunning-mousse-cc0829.netlify.app/&screenshot=true&meta=false&embed=screenshot.url" alt="Stunning Mousse Project" class="w-full h-full object-cover transition-transform duration-700">
+            <div class="card-overlay">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-brand-blue mb-2">Web</span>
+              <h3 class="text-xl font-bold">Stunning Mousse</h3>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Category: Apps Webs -->
+      <section class="project-category-section mb-20" data-category="apps">
+        <div class="flex items-end justify-between mb-8">
+          <div>
+            <h2 class="text-3xl font-display font-black mb-2">Apps Webs</h2>
+            <div class="h-1 w-12 bg-brand-blue rounded-full"></div>
+          </div>
+          <button class="text-brand-blue font-bold hover:text-[#65a30d] transition-colors flex items-center gap-2" onclick="filterCategory('apps')">
+            Ver todo
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        
+        <div class="category-row-scroll flex flex-row flex-nowrap overflow-x-auto gap-6 pb-8 no-scrollbar">
+          <!-- Card Aurea Wealth -->
+          <a href="https://finance-tracker-silk-eta.vercel.app" target="_blank" class="project-card flex-shrink-0 w-[240px] md:w-[320px] snap-start aspect-[16/10]">
+            <img src="https://api.microlink.io/?url=https://finance-tracker-silk-eta.vercel.app/&screenshot=true&meta=false&embed=screenshot.url" alt="Aurea Wealth Project" class="w-full h-full object-cover transition-transform duration-700">
+            <div class="card-overlay">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-brand-blue mb-2">Web App / Finanzas</span>
+              <h3 class="text-xl font-bold">Aurea Wealth</h3>
+            </div>
+          </a>
+          <!-- Card LoyalGame User -->
+          <a href="https://loyalgameuser.vercel.app" target="_blank" class="project-card flex-shrink-0 w-[240px] md:w-[320px] snap-start aspect-[16/10]">
+            <img src="./brand/loyalgame-user.png" alt="LoyalGame User Project" class="w-full h-full object-cover transition-transform duration-700">
+            <div class="card-overlay">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-brand-blue mb-2">Web App / Gamificación</span>
+              <h3 class="text-xl font-bold">LoyalGame User</h3>
+            </div>
+          </a>
+          <!-- Card RapiFood -->
+          <a href="https://steady-sherbet-35360f.netlify.app/" target="_blank" class="project-card flex-shrink-0 w-[240px] md:w-[320px] snap-start aspect-[16/10]">
+            <img src="https://api.microlink.io/?url=https://steady-sherbet-35360f.netlify.app/&screenshot=true&meta=false&embed=screenshot.url" alt="RapiFood Project" class="w-full h-full object-cover transition-transform duration-700">
+            <div class="card-overlay">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-brand-blue mb-2">Web App</span>
+              <h3 class="text-xl font-bold">RapiFood</h3>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Category: Pantallas Animadas -->
+      <section class="project-category-section mb-20" data-category="animadas">
+        <div class="flex items-end justify-between mb-8">
+          <div>
+            <h2 class="text-3xl font-display font-black mb-2">Pantallas Animadas</h2>
+            <div class="h-1 w-12 bg-brand-blue rounded-full"></div>
+          </div>
+          <button class="text-brand-blue font-bold hover:text-[#65a30d] transition-colors flex items-center gap-2" onclick="filterCategory('animadas')">
+            Ver todo
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        
+        <div class="category-row-scroll flex flex-row flex-nowrap overflow-x-auto gap-6 pb-8 no-scrollbar">
+          <!-- Card 1 -->
+          <div class="project-card flex-shrink-0 w-[240px] md:w-[320px] snap-start aspect-[16/10]">
+            <video src="./Churromania.mp4" autoplay loop muted playsinline class="w-full h-full object-cover transition-transform duration-700"></video>
+            <div class="card-overlay">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-brand-blue mb-2">E-commerce</span>
+              <h3 class="text-xl font-bold">Churromanía Web App</h3>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="project-card flex-shrink-0 w-[320px] md:w-[400px] snap-start aspect-[16/10]">
+            <video src="./Beauty.mp4" autoplay loop muted playsinline class="w-full h-full object-cover transition-transform duration-700"></video>
+            <div class="card-overlay">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-brand-blue mb-2">Branding</span>
+              <h3 class="text-xl font-bold">Beauty Center Portal</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category: CRM -->
+      <section class="project-category-section mb-20" data-category="crm">
+        <div class="flex items-end justify-between mb-8">
+          <div>
+            <h2 class="text-3xl font-display font-black mb-2">CRM & Sistemas</h2>
+            <div class="h-1 w-12 bg-brand-blue rounded-full"></div>
+          </div>
+          <button class="text-brand-blue font-bold hover:text-[#65a30d] transition-colors flex items-center gap-2" onclick="filterCategory('crm')">
+            Ver todo
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        
+        <div class="category-row-scroll flex flex-row flex-nowrap overflow-x-auto gap-6 pb-8 no-scrollbar">
+          <!-- Card TenantFlow CRM -->
+          <a href="https://tenantflow-crm.vercel.app" target="_blank" class="project-card flex-shrink-0 w-[240px] md:w-[320px] snap-start aspect-[16/10] group">
+            <img src="./brand/tenantflow-crm.png" alt="TenantFlow CRM Project" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-500">
+              <div class="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                <div class="flex items-center gap-2 mb-2">
+                  <div class="h-6 w-6 bg-indigo-600 rounded flex items-center justify-center p-1 shadow-lg shadow-indigo-600/30">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"/><path d="M3 9V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4"/><path d="M13 13h4"/><path d="M13 17h4"/></svg>
+                  </div>
+                  <span class="text-[9px] font-black uppercase tracking-[0.2em] text-white/90">SaaS Platform</span>
+                </div>
+                <h3 class="text-lg font-bold text-white mb-1">TenantFlow CRM</h3>
+                <p class="text-[10px] text-zinc-400 font-medium">Multi-tenant Infrastructure / Pipeline Tracking</p>
+              </div>
+            </div>
+          </a>
+          <!-- Card GlamourPlace -->
+          <a href="https://glamourplace.vercel.app" target="_blank" class="project-card flex-shrink-0 w-[240px] md:w-[320px] snap-start aspect-[16/10]">
+            <img src="./brand/glamourplace-crm.png" alt="GlamourPlace Nail CRM" class="w-full h-full object-cover transition-transform duration-700">
+            <div class="card-overlay">
+              <img src="./brand/glamourplace-logo.png" alt="GlamourPlace Logo" class="w-12 h-12 mb-3 bg-white/10 backdrop-blur-sm rounded-lg p-1">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-brand-blue mb-2">CRM / Glassmorphism</span>
+              <h3 class="text-xl font-bold">GlamourPlace Nails</h3>
+            </div>
+          </a>
+          <!-- Card LoyalGame Local -->
+          <a href="https://app-jorgeandresreyesb02-3194s-projects.vercel.app/" target="_blank" class="project-card flex-shrink-0 w-[240px] md:w-[320px] snap-start aspect-[16/10]">
+            <img src="./brand/loyalgame-local.png" alt="LoyalGame Business Dashboard" class="w-full h-full object-cover transition-transform duration-700">
+            <div class="card-overlay">
+              <span class="text-[10px] font-bold uppercase tracking-widest text-brand-blue mb-2">Management / Dashboard</span>
+              <h3 class="text-xl font-bold">LoyalGame Business</h3>
+            </div>
+          </a>
+        </div>
+      </section>
+
+
+
+    </div>
+
+    <!-- Final CTA -->
+    <section class="mt-20 text-center p-12 rounded-[3rem] bg-gradient-to-b from-slate-900 to-transparent border border-white/5">
+      <h2 class="text-4xl font-display font-black mb-6">¿Listo para ser el próximo?</h2>
+      <p class="text-slate-400 mb-10 max-w-xl mx-auto">
+        Sea cual sea tu categoría, podemos elevar tu proyecto al siguiente nivel con diseño y tecnología de vanguardia.
+      </p>
+      <a href="https://wa.me/584243799214" target="_blank"
+        class="bg-brand-gradient text-white px-10 py-5 rounded-full font-black text-xl hover:scale-105 transition-transform inline-block">Empecemos Ahora</a>
+    </section>
+
+  </main>
+
+  <script>
+    function filterCategory(category) {
+      document.body.classList.add('filter-active');
+      const sections = document.querySelectorAll('.project-category-section');
+      
+      sections.forEach(s => {
+        const rowScroll = s.querySelector('.category-row-scroll') || s.querySelector('.category-grid-mode');
+        
+        if (s.dataset.category === category) {
+          s.classList.add('active-filter');
+          s.classList.remove('hidden');
+          
+          if (rowScroll) {
+            rowScroll.classList.remove('category-row-scroll');
+            rowScroll.classList.add('category-grid-mode', 'grid', 'grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3', 'gap-8');
+          }
+          s.querySelector('.category-btn').style.display = 'none';
+        } else {
+          s.classList.remove('active-filter');
+          s.classList.add('hidden');
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function resetFilters() {
+      document.body.classList.remove('filter-active');
+      const sections = document.querySelectorAll('.project-category-section');
+      
+      sections.forEach(s => {
+        s.classList.remove('active-filter', 'hidden');
+        const grid = s.querySelector('.category-grid-mode');
+        
+        if (grid) {
+          grid.classList.remove('category-grid-mode', 'grid', 'grid-cols-1', 'md:grid-cols-2', 'lg:grid-cols-3', 'gap-8');
+          grid.classList.add('category-row-scroll');
+        }
+        s.querySelector('.category-btn').style.display = 'flex';
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Scroll reveal animations
+    const cardOptions = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-10');
+        }
+      });
+    }, cardOptions);
+
+    document.querySelectorAll('.project-card').forEach(card => {
+      // Avoid hiding cards that should be visible immediately
+      card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+      observer.observe(card);
+    });
+
+    // Fallback: If after 2 seconds cards are still invisible, force show them
+    setTimeout(() => {
+      document.querySelectorAll('.project-card.opacity-0').forEach(card => {
+        card.classList.remove('opacity-0', 'translate-y-10');
+        card.classList.add('opacity-100', 'translate-y-0');
+      });
+    }, 2000);
+  </script>
+</body>
+
+</html>
